@@ -1,0 +1,108 @@
+body {
+	color: red;
+	margin: 0px;
+}
+.bigSonly {
+	@media screen and (max-width: 700px) {
+		display: none;
+	}
+}
+.smallSonly {
+	@media screen and (min-width: 700px) {
+		display: none;
+	}
+}
+// By default we have the hamburger menu
+// With scss we can be very specific, based on only the class of the container we can change the underlying css
+
+header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	.logo-cont {
+		margin-left: 10px;
+		margin-top: 10px;
+		.logo {
+			// aspect-ratio: 800/167;
+			height: 50px;
+		}
+	}
+
+	.menu-toggle {
+		@media screen and (min-width: 700px) {
+			display: none;
+		}
+		height: 32px;
+		position: relative;
+		transform: rotate(0deg);
+		transition: 0.5s ease-in-out;
+		cursor: pointer;
+		width: 40px;
+		margin-right: 10px;
+
+		i,
+		i:after,
+		i:before {
+			display: block;
+			// Keep the bars inside the main block and positioned absolutely compared to the .menu-toggle - removed from flow of page
+			position: absolute;
+			height: 3px;
+			width: 100%;
+			background: pink;
+			border-radius: 2px;
+			transform: rotate(0deg);
+			transition: 0.25s ease-in-out;
+			content: "";
+		}
+
+		i:after {
+			top: -29px;
+		}
+		i:before {
+			top: -14.5px;
+		}
+		i {
+			top: 29px;
+		}
+	}
+	.menu-toggle.open {
+		i {
+			// Don't want the X underlined
+			height: 0px;
+		}
+		i:after,
+		i:before {
+			// Move them to the middle
+			top: -22px;
+		}
+		i:after {
+			transform: rotate(45deg);
+		}
+		i:before {
+			transform: rotate(-45deg);
+		}
+	}
+
+	.links-cont {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		.links {
+			@media screen and (max-width: 700px) {
+				display: none;
+			}
+			@media screen and (min-width: 700px) {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-end;
+				align-items: center;
+				list-style: none;
+				li {
+					padding-right: 10px;
+				}
+			}
+		}
+	}
+}
