@@ -20,6 +20,7 @@ header {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	border-bottom: 3px solid pink;
 
 	.logo-cont {
 		margin-left: 10px;
@@ -91,24 +92,30 @@ header {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		// For the menu
-		margin-right: 10px;
+		padding-inline-start: 0px;
+
 		.links {
+			// By default not showed on a small screen have mobile menu
 			@media screen and (max-width: 700px) {
 				display: none;
 			}
 			@media screen and (min-width: 700px) {
-				@media screen and (min-width: 1000px) {
-					font-size: larger;
-					a {
-						padding-right: 15px;
-					}
-				}
 				display: flex;
-				list-style: none;
 				flex-direction: row;
 				justify-content: flex-end;
 				align-items: center;
+				list-style: none;
+				margin: 0px;
+				.nav-link-cont {
+					display: flex;
+					justify-content: center;
+				}
+				@media screen and (min-width: 1000px) {
+					font-size: larger;
+					// a {
+					// 	padding-right: 15px;
+					// }
+				}
 
 				a {
 					text-decoration: none;
@@ -123,7 +130,6 @@ header {
 					background: pink;
 					color: blue;
 					border-radius: 2px;
-					padding: 10px;
 				}
 			}
 		}

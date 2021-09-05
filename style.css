@@ -29,6 +29,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-bottom: 3px solid pink;
 }
 
 header .logo-cont {
@@ -117,7 +118,8 @@ header .links-cont {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 10px;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
 }
 
 @media screen and (max-width: 700px) {
@@ -131,7 +133,6 @@ header .links-cont {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    list-style: none;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -142,15 +143,22 @@ header .links-cont {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    list-style: none;
+    margin: 0px;
+  }
+  header .links-cont .links .nav-link-cont {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
 @media screen and (min-width: 700px) and (min-width: 1000px) {
   header .links-cont .links {
     font-size: larger;
-  }
-  header .links-cont .links a {
-    padding-right: 15px;
   }
 }
 
@@ -168,7 +176,6 @@ header .links-cont {
     background: pink;
     color: blue;
     border-radius: 2px;
-    padding: 10px;
   }
 }
 
