@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RIBOTOX</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="heading-style.css">
+
 </head>
-<!-- In terms of coding - in javascript -->
 
 <body>
     <div class="loader-wrapper">
@@ -17,16 +18,21 @@
             Your browser does not support the video tag. :(
         </video>
     </div>
-    <header>
-        <div class="logo-cont">
-            <video id="logo-video" class="logo" poster="assets/white.png" preload="true" muted>
-                <source src="assets/Ribotox_entering_anim.mp4" type="video/mp4">
-            </video>
-        </div>
-        <nav class="links-cont">
-            <div class="menu-toggle">
-                <i></i>
+    <nav>
+        <div class="content_wrapper">
+            <a href="/Team:CLSB-UK">
+                <video id="logo-video" class="logo" poster="assets/white.png" preload="true" muted>
+                    <source src="assets/Ribotox_entering_anim.mp4" type="video/mp4">
+                </video>
+            </a>
+
+            <div class="hamburger"
+                onclick="this.parentNode.parentNode.parentNode.classList.toggle('mobile-open');window.scrollTo(0, 0);">
+                <div class="bar top"></div>
+                <div class="bar middle"></div>
+                <div class="bar bottom"></div>
             </div>
+
             <ul class="nav">
                 <li class="dropdown">
                     <a href="/Team:CLSB-UK">Project</a>
@@ -94,8 +100,8 @@
                     </ul>
                 </li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
 </body>
 <script src="indexscript.js"></script>
 

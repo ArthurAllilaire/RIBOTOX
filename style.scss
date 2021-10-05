@@ -14,6 +14,57 @@ body {
 }
 // By default we have the hamburger menu
 // With scss we can be very specific, based on only the class of the container we can change the underlying css
+.loader-wrapper {
+	opacity: 1;
+	transition: opacity 3s;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: white;
+	z-index: 2;
+	// display: flex;
+	// justify-content: center;
+	// align-items: center;
+	#loading-video {
+		// Set the width, height, padding and margin based on screen size.
+		width: 100px;
+		height: 100px;
+		padding-right: 30px;
+		// Margin is negative half of height
+		margin-top: -65px;
+		margin-left: -65px;
+
+		@media screen and (min-width: 700px) {
+			width: 300px;
+			height: 300px;
+			padding-right: 90px;
+			margin-top: -195px;
+			margin-left: -195px;
+		}
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		// Can't have padding transition smoothly
+		// transition-property: top, left, height, width, transform, position;
+		// transition-duration: 10s, 10s, 10s, 10s, 10s, 10s;
+	}
+}
+// ANIMATIONS
+.fade {
+	opacity: 0;
+}
+.top-left-exit {
+	position: fixed !important;
+	top: 10px !important;
+	left: 4px !important;
+	height: 50px !important;
+	width: auto !important;
+	margin: 0px !important;
+	transition: all 1s !important;
+	// transform: rotate(360deg);
+}
 
 header {
 	display: flex;
@@ -94,7 +145,7 @@ header {
 		align-items: center;
 		padding-inline-start: 0px;
 
-		.links {
+		.nav {
 			// By default not showed on a small screen have mobile menu
 			@media screen and (max-width: 700px) {
 				display: none;
@@ -106,10 +157,8 @@ header {
 				align-items: center;
 				list-style: none;
 				margin: 0px;
-				.nav-link-cont {
-					display: flex;
-					justify-content: center;
-				}
+				padding: 10px;
+
 				@media screen and (min-width: 1000px) {
 					font-size: larger;
 					// a {
@@ -117,6 +166,7 @@ header {
 					// }
 				}
 
+				//Link styling
 				a {
 					text-decoration: none;
 					font-weight: bold;
@@ -130,6 +180,38 @@ header {
 					background: pink;
 					color: blue;
 					border-radius: 2px;
+				}
+
+				//Dropdown styling
+				.dropdown-content {
+					display: none;
+					position: absolute;
+					background-color: white;
+					min-width: 160px;
+					box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+					z-index: 1;
+					list-style: none;
+					padding-inline-start: 0px;
+				}
+				.dropdown-content a {
+					color: black;
+					padding: 12px 16px;
+					text-decoration: none;
+					display: block;
+				}
+				/* Change color of dropdown links on hover */
+				.dropdown-content a:hover {
+					background-color: #ddd;
+				}
+
+				/* Show the dropdown menu on hover */
+				.dropdown:hover .dropdown-content {
+					display: block;
+				}
+
+				/* Change the background color of the dropdown button when the dropdown content is shown */
+				.dropdown:hover .dropbtn {
+					background-color: #3e8e41;
 				}
 			}
 		}

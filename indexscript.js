@@ -1,11 +1,23 @@
 document.addEventListener('DOMContentLoaded',function(){
+    // Once the dom content is loaded remove the loader wrapper and put the loading video top left to merge with incoming logo.
+    setTimeout(function(){
+        document.querySelector('.loader-wrapper').classList.add('fade');
+        document.querySelector('#loading-video').classList.add('top-left-exit');
+        
+    }, 2000)
+    // Set the video to autoplay only once the transition is over
+    setTimeout(function(){
+        const video = document.querySelector('#logo-video').play();
+        // Remove the loading div completely
+        document.querySelector('.loader-wrapper').style.display = "none";
+    }, 3000)
+   
     document.querySelector('.menu-toggle').addEventListener('click', toggleMenu)
     makeLinkActive();
 })
 
 function toggleMenu(event){
     target = event.target
-    console.log(target)
     //Check to make sure div not i was selected
     if (target.classList.contains("menu-toggle") == false){
         target = target.parentNode
