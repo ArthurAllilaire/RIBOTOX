@@ -1,6 +1,7 @@
 body {
   color: red;
   margin: 0px;
+  font-family: "Baskervville", serif;
 }
 
 @media screen and (max-width: 700px) {
@@ -62,6 +63,12 @@ body {
   margin: 0px !important;
   -webkit-transition: all 1s !important;
   transition: all 1s !important;
+}
+
+.into-middle {
+  background-position-x: -50vw !important;
+  -webkit-transition: all 2s;
+  transition: all 2s;
 }
 
 header {
@@ -233,6 +240,7 @@ header .links-cont {
     list-style: none;
     -webkit-padding-start: 0px;
             padding-inline-start: 0px;
+    border-radius: 5px;
   }
   header .links-cont .nav .dropdown-content a {
     color: black;
@@ -282,5 +290,59 @@ header .links-cont .mobile-links a {
   text-decoration: none;
   color: white;
   font-size: large;
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
+  background-size: 200vw;
+  background-image: url(assets/wave1-compressed.png), url(assets/wave2.png);
+  background-repeat: no-repeat;
+  background-position-x: 100vw, -200vw;
+  background-position-y: -900px;
+}
+
+.content .writing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 300px 200px;
+  color: white;
+}
+
+.content h1 {
+  font-size: 4em;
+}
+
+.content h2 {
+  margin-top: 20px;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position-x: 0vw, -100vw;
+  }
+  100% {
+    background-position-x: -100vw, 0vw;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position-x: 0vw, -100vw;
+  }
+  100% {
+    background-position-x: -100vw, 0vw;
+  }
 }
 /*# sourceMappingURL=style.css.map */

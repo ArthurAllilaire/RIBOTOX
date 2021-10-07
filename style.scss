@@ -1,6 +1,7 @@
 body {
 	color: red;
 	margin: 0px;
+	font-family: "Baskervville", serif;
 }
 .bigSonly {
 	@media screen and (max-width: 700px) {
@@ -64,6 +65,10 @@ body {
 	margin: 0px !important;
 	transition: all 1s !important;
 	// transform: rotate(360deg);
+}
+.into-middle {
+	background-position-x: -50vw !important;
+	transition: all 2s;
 }
 
 header {
@@ -192,6 +197,7 @@ header {
 					z-index: 1;
 					list-style: none;
 					padding-inline-start: 0px;
+					border-radius: 5px;
 				}
 				.dropdown-content a {
 					color: black;
@@ -242,5 +248,45 @@ header {
 				font-size: large;
 			}
 		}
+	}
+}
+
+.content {
+	width: 100%;
+	height: 100vh;
+	background-size: 200vw;
+	background-image: url(assets/wave1-compressed.png), url(assets/wave2.png);
+	background-repeat: no-repeat;
+	// Default position is off the page, one on each side
+	background-position-x: 100vw, -200vw;
+	background-position-y: -900px;
+	// animation: gradient 2s ease;
+	// animation: gradient 15s ease infinite;
+
+	.writing {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 300px 200px;
+		color: white;
+	}
+	h1 {
+		font-size: 4em;
+	}
+	h2 {
+		margin-top: 20px;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position-x: 0vw, -100vw;
+	}
+	// 50% {
+	// 	background-position-x: 50%;
+	// }
+	100% {
+		background-position-x: -100vw, 0vw;
 	}
 }

@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded',function(){
         const video = document.querySelector('#logo-video').play();
         // Remove the loading div completely
         document.querySelector('.loader-wrapper').style.display = "none";
+        // Bring in the waves
+        document.querySelector('.content').classList.add('into-middle');
     }, 3000)
    
     document.querySelector('.menu-toggle').addEventListener('click', toggleMenu)
