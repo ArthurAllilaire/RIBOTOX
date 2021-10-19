@@ -1,3 +1,24 @@
+// Colour scheme 111 for text when on hover and 121 for around
+// Actual text is 124
+// Current page is 121 for highlight and 211 for main text
+$C111: rgb(208, 55, 87);
+$C112: rgb(167, 47, 95);
+$C113: rgb(117, 49, 94);
+$C114: rgb(70, 46, 89);
+$C121: rgb(243, 198, 230);
+$C122: rgb(242, 128, 168);
+$C123: rgb(234, 215, 233);
+$C124: rgb(197, 194, 225);
+
+$C211: rgb(48, 48, 126);
+$C212: rgb(84, 145, 184);
+$C213: rgb(12, 31, 74);
+$C214: rgb(13, 28, 55);
+$C221: rgb(28, 27, 50);
+$C222: rgb(77, 76, 105);
+$C223: rgb(117, 115, 148);
+$C224: rgb(159, 158, 186);
+
 body {
 	color: red;
 	margin: 0px;
@@ -70,23 +91,31 @@ body {
 	background-position-x: -50vw !important;
 	transition: all 2s ease-out;
 }
-
+.nav-placeholder {
+	height: 70px;
+}
 header {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	height: 70px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	background: white;
 
 	.logo-cont {
-		margin-left: 10px;
-		margin-top: 10px;
+		margin-left: 15px;
+		margin-top: 5px;
 		.logo {
 			// aspect-ratio: 800/167;
 			height: 50px;
 		}
 	}
+	// iphone menu
 	.menu-toggle {
-		@media screen and (min-width: 700px) {
+		@media screen and (min-width: 902px) {
 			display: none;
 		}
 
@@ -146,31 +175,33 @@ header {
 	.links-cont {
 		display: flex;
 		flex-direction: row;
-		align-items: center;
+		// align-items: center;
 		padding-inline-start: 0px;
 
 		.nav {
 			// By default not showed on a small screen have mobile menu
-			@media screen and (max-width: 700px) {
+			@media screen and (max-width: 902px) {
 				display: none;
 			}
-			@media screen and (min-width: 700px) {
+			@media screen and (min-width: 902px) {
+				// Dimensions of the nav links
 				display: flex;
 				flex-direction: row;
-				justify-content: flex-end;
+				justify-content: flex-start;
 				align-items: center;
 				list-style: none;
 				margin: 0px;
-				padding: 10px;
+				margin-right: 15px;
+				padding: 10px 0px;
 
 				@media screen and (min-width: 1000px) {
 					font-size: larger;
-					// a {
-					// 	padding-right: 15px;
-					// }
 				}
 
 				//Link styling
+				.dropdown {
+					position: relative;
+				}
 				a {
 					text-decoration: none;
 					font-weight: bold;
@@ -196,27 +227,29 @@ header {
 					z-index: 1;
 					list-style: none;
 					padding-inline-start: 0px;
-					border-radius: 5px;
+					border-radius: 10px;
+					left: -20px;
+					padding: 15px;
+					a {
+						padding: 12px 16px;
+						text-decoration: none;
+						display: block;
+						color: $C223;
+						border-radius: 5px;
+					}
+					a:hover {
+						color: $C111;
+						background-color: $C121;
+					}
 				}
-				.dropdown-content a {
-					color: black;
-					padding: 12px 16px;
-					text-decoration: none;
-					display: block;
-				}
-				/* Change color of dropdown links on hover */
-				.dropdown-content a:hover {
-					background-color: #ddd;
+				// Deal with the people one which is off the page
+				#people-dropdown {
+					left: -100px;
 				}
 
 				/* Show the dropdown menu on hover */
 				.dropdown:hover .dropdown-content {
 					display: block;
-				}
-
-				/* Change the background color of the dropdown button when the dropdown content is shown */
-				.dropdown:hover .dropbtn {
-					background-color: #3e8e41;
 				}
 			}
 		}
@@ -252,7 +285,7 @@ header {
 
 .content {
 	width: 100%;
-	height: 100vh;
+	height: 300vh;
 	background-size: 200vw;
 	background-image: url(assets/wave1-compressed.png), url(assets/wave2.png);
 	background-repeat: no-repeat;

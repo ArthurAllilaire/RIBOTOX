@@ -21,6 +21,17 @@ document.addEventListener('DOMContentLoaded',function(){
     makeLinkActive();
 })
 
+// Add box shadow once the header passes 200px;
+window.onscroll = function() {
+    if(window.pageYOffset > 100){
+        console.log(window.pageYOffset)
+        document.querySelector('header').style.boxShadow= "0px 5px 25px -10px rgb(117, 115, 148)";
+        // document.getElementById('#header').style.boxShadow = "0px 5px 25px -10px rgb(117, 115, 148)";
+    } else{
+        document.querySelector('header').style.boxShadow= "";
+    }
+}
+
 function toggleMenu(event){
     target = event.target
     //Check to make sure div not i was selected
