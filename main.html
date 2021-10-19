@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="intro-text">
+            <h1 class="main-header">PROJECT RIBOTOX</h1>
+            <h3>Screening for Preeclampsia Using RNA</h3>
+            <p>Pre-eclampsia is a condition prevalent around the globe that causes high blood pressure during and after
+                pregnancy. Currently, It is detected after symptoms have arisen by old, antiquated methods such as a
+                blood pressure
+                cuff that often
+                result in misdiagnosis and missed-diagnosis <sup id="cite_ref-1"><a
+                        href="/Team:CLSB-UK/HP">[1]</a></sup>, ultimately leading
+                to
+                preventable complications in pregnancy such as foetal growth restriction, low birth weight and
+                life-threatening seizures
+                and blood clots <sup id="cite_ref-2"><a href="#cite_note-2">[2]</a></sup>.</p>
+            <p>Project RIBOTOX’s primary aim was to overcome the drawbacks of antiquated diagnostic methods, by
+                developing a genetic
+                engineering based cell-free test for microRNA (miRNA) biomarkers that can detect cases much sooner into
+                pregnancy, so
+                medication such as aspirin and statins can be taken and patients’ symptoms can be tracked by their
+                doctor.</p>
+            <p>The secondary aim was to create a framework with which researchers and igem teams in the future can
+                develop tests for
+                multiple microRNAs at low concentrations, and also to develop a software tool to increase the use of
+                in-silico
+                experimentation, saving costs in the lab.</p>
+            <p>The final goal was to spread awareness about a condition which, despite its prevalence, is relatively
+                unknown, and too
+                often damages lives in both the developed and less developed worlds.</p>
+        </div>
+        <div class="main-content-cont">
+            <div class="main-content">
+                <figure>
+                    <img src="" alt="">
+                    <blockquote>‘We still rely on a two hundred year old technology to diagnose preeclampsia’.
+                        ‘There isn’t an established test for preeclampsia, and that’s one of the problems. If you can
+                        create a test that screens
+                        for even half the cases of Preeclampsia, that would have a huge effect.’</blockquote>
+                    <figcaption><span>Professor Basky Thilaganathan</span> St George's Hospital and Editor-in Chief of
+                        Ultrasound in Obstetrics and Gynaecology.</figcaption>
+                </figure>
+                <h2>MicroRNA Biomarkers</h2>
+                <p>MicroRNAs are small, 15 - 20 nucleotide long, non-coding RNAs that regulate gene expression and play
+                    an important role
+                    in the regulation of placental development<sup id="cite_ref-3"><a href="#cite_note-3">[3]</a></sup>.
+                </p>
+                <p>MicroRNAs circulating in human serum have been shown to be upregulated in certain conditions, such as
+                    Preeclampsia,
+                    allowing them to be used as biomarkers in disease detection<sup id="cite_ref-4"><a
+                            href="#cite_note-4">[4]</a></sup>.</p>
+                <p>In Preeclampsia, placental dysfunction and hypoxia leads to abnormal extracellular miRNA secretion
+                    and we found two
+                    miRNAs - miR 210 3p and miR 517 5p- which are upregulated between the 10th and 13th week of
+                    pregnancy, before symptoms
+                    have arised <sup id="cite_ref-5"><a href="#cite_note-5">[5]</a></sup> <sup id="cite_ref-6"><a
+                            href="#cite_note-6">[6]</a></sup>.</p>
+                <p>This is twice as early as traditional detection methods, such as a blood pressure cuff (which detects
+                    the condition
+                    after symptoms have arisen at 20 weeks), can sense the condition<sup id="cite_ref-7"><a
+                            href="#cite_note-7">[7]</a></sup>.</p>
+
+                <figure>
+                    <img src="" alt="">
+                    <blockquote>‘[Current diagnostic tools are] antiquated and result in missed diagnosis and
+                        misdiagnosis. An accurate and rapid
+                        diagnostic/screening tool for preeclampsia would certainly contribute to reducing mortality'.
+                    </blockquote>
+                    <figcaption>The Preeclampsia Foundation</figcaption>
+                </figure>
+                <h2>Toehold Switches</h2>
+                <p>We designed three generations of toehold switches, improving their efficacy each time to consider
+                    both specificity and
+                    cost.</p>
+                <h5>Gen2</h5>
+                <p>When few microRNAs are present, the ribosome binding site of an mRNA coding for luciferase is folded
+                    up, so the ribosome
+                    cannot unzip the long stem and move down the strand to the start codon to initiate translation.
+                    However, when a microRNA
+                    binds to the trigger site, the switch unfolds, decreasing the length of the stem, and exposing the
+                    start codon, so
+                    translation of leuciferase - a reporter protein - can begin. Both gen2 switches were designed using
+                    a Python script we
+                    developed which predicted the secondary structure of RNA complexes based on different linker
+                    regions, and selected the
+                    ones which were most likely to unfold.</p>
+                <h5>Gen3</h5>
+                <p>After designing the gen2 switches, we realised that detecting two microRNAs using two different
+                    switches would require
+                    more hardware than if we could detect both in the same switch, and this problem would increase if we
+                    wanted to detect
+                    even more microRNAs. With this in mind, we decided to develop a novel AND-gate switch to demonstrate
+                    how more complex
+                    RNA diagnostic tools can be used to simplify other aspects of a detection kit, such as hardware.
+                    This switch works by binding both microRNAs together with an antiRNA and then detecting that complex
+                    with a
+                    complementary trigger binding site. It's not inconceivable that teams in the future could scale up
+                    our design to detect
+                    cocktails of 3, 4, 5 or even more microRNAs with the same toehold switch, and this is part of our
+                    framework for future
+                    research.</p>
+                <h2>RPA</h2>
+                <p>Having tested both our gen2 and gen3 switches, we decided that difficulties in discriminating between
+                    leaky expression,
+                    and low miRNA concentration, in addition to not knowing the true concentrations of the miRNAs in
+                    human serum meant we
+                    should find a way to amplify microRNAs. This decision was further confirmed by talking to
+                    researchers such as Dr Ciara
+                    O’Sullivan and Dr Alex Green.</p>
+                <p>Not only is PCR difficult to perform on microRNAs due to their short length, we wanted to find a
+                    solution that would
+                    allow amplification to take place isothermally, in a single tube, increasing the accessibility of
+                    our tests, especially
+                    in countries with less access to expensive equipment such as thermocyclers. For this reason, we
+                    designed a new
+                    amplification strategy by combining Recombinase Polymerase Amplification, or ‘RPA’, with miRPA. This
+                    process is
+                    explained in detail on our <a href="/Team:CLSB-UK/Design">design page</a>.</p>
+
+                <h2>Outreach and Human Practices</h2>
+                <p>For human practices, we initially wanted to gain an understanding of the general public’s knowledge
+                    of pre-eclampsia.
+                    Therefore, we conducted a random-sampling survey amongst our peers. The results of the survey made
+                    us quickly realise
+                    that more awareness is needed on this topic.</p>
+                <p>In order to combat this, we started off by making leaflets that we spread around our schools. The
+                    leaflets included
+                    information such as: symptoms, diagnosis and treatment of pre-eclampsia. To reach a wider audience,
+                    we recorded a
+                    podcast mini-series. This proved to be an effective and easily-accessible method of communication.
+                    We recorded episodes
+                    with Dr Andrew Shennan who is a professor and consultant of obstetrics at King's College London, and
+                    he works closely
+                    with APEC, which is the UKs leading preeclampsia charity. We also interviewed our head teacher Mrs
+                    Brown, who has
+                    previously had pre-eclampsia, about her experience and how it affected her.</p>
+                <p>We also designed an app which provides on-hand information about pre-eclampsia for those who are keen
+                    to learn more. The
+                    app consists of details about our project, the disease and different methods in which people can
+                    learn more about it.</p>
+                <p>In addition to this, we provided a cost model and entrepreneurship strategy which analysed how we
+                    could clinically
+                    implement our project into the real world.</p>
+                <p>Throughout human practices, we have contacted numerous other teams that are taking part in the
+                    project as well. This
+                    includes King’s College London and Moscow. We also were in contact with different professors,
+                    charities and people from
+                    the iGEM ethics committee. All of these interactions helped shape our project by making sure that we
+                    followed all
+                    ethical and social guidelines, whilst effectively spreading awareness.</p>
+                <h2>Learn More</h2>
+                <p>To learn more about these aspects of project RIBOTOX, as well as our hardware, software, modelling
+                    and more, visit the
+                    pages below.</p>
+                <nav class="bottom-links"></nav>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Refrences</h2>
+        <ol class="refrences">
+            <li id="cite_note-1"><a href="/Team:CLSB-UK/HP">Human Practices</a></li>
+            <li id="cite_note-2">nhs.uk. (2021).
+                Pre-eclampsia - Symptoms[Online]. Available at:
+                https://www.nhs.uk/conditions/pre-eclampsia/symptoms [Accessed 19 October 2021].
+            </li>
+            <li id="cite_note-3">David P. Bartel (2018). Metazoan MicroRNAs [Online]. Available at:
+                https://doi.org/10.1016%2Fj.cell.2018.03.006 [Accessed 19 October 2021]
+            </li>
+            <li id="cite_note-4">Condrat, C.E. et al., 2020. miRNAs as Biomarkers in Disease: Latest Findings Regarding
+                Their Role in Diagnosis and
+                Prognosis. Cells, 9(2), p.276. Available at: http://dx.doi.org/10.3390/cells9020276. [Accessed 19
+                October 2021]
+            </li>
+            <li id="cite_note-5">Reza M. A. N., Kolsoum S. et al., 2019. Quantification of circulating miR-517c-3p and
+                miR-210-3p levels in preeclampsia. Pregnancy Hypertension, Volume 16, 2019, Pages 75-78, ISSN 2210-7789.
+                Available at: https://doi.org/10.1016/j.preghy.2019.03.004 [Accessed 19 October 2021]</a>
+            </li>
+            <li id="cite_note-6">Condrat, C.E. et al., 2020. miRNAs as Biomarkers in Disease: Latest Findings Regarding
+                Their Role in Diagnosis and
+                Prognosis. Cells, 9(2), p.276. Available at: http://dx.doi.org/10.3390/cells9020276. [Accessed 19
+                October 2021]
+            </li>
+            <li id="cite_note-7">Condrat, C.E. et al., 2020. miRNAs as Biomarkers in Disease: Latest Findings Regarding
+                Their Role in Diagnosis and
+                Prognosis. Cells, 9(2), p.276. Available at: http://dx.doi.org/10.3390/cells9020276. [Accessed 19
+                October 2021]
+            </li>
+            </li>
+        </ol>
+    </div>
+</body>
+
+</html>

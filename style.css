@@ -1,5 +1,4 @@
 body {
-  color: red;
   margin: 0px;
   font-family: "Baskervville", serif;
 }
@@ -305,19 +304,26 @@ header .links-cont .mobile-links a {
 
 .content {
   width: 100%;
-  height: 300vh;
-  background-size: 200vw;
+  height: 1000px;
+  background-size: 2500px 2500px;
   background-image: url(assets/wave1-compressed.png), url(assets/wave2.png);
   background-repeat: no-repeat;
   background-position-x: -10vw, -90vw;
-  background-position-y: -900px;
+  background-position-y: -780px;
   -webkit-animation: gradient 15s infinite;
           animation: gradient 15s infinite;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 740px) {
   .content {
-    background-position-y: -400px !important;
+    background-size: 2000px 2500px !important;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .content {
+    background-size: auto;
+    background-position-y: -1200px, -1150px;
   }
 }
 
@@ -341,6 +347,7 @@ header .links-cont .mobile-links a {
 
 .content h1 {
   font-size: 4em;
+  margin: 0px;
 }
 
 .content h2 {

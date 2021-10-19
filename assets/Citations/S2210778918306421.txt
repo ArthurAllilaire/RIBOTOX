@@ -1,0 +1,11 @@
+Reza Mola Ali Nejad, Kolsoum Saeidi, Sedigheh Gharbi, Zohreh Salari, Nasrollah Saleh-Gohari,
+Quantification of circulating miR-517c-3p and miR-210-3p levels in preeclampsia,
+Pregnancy Hypertension,
+Volume 16,
+2019,
+Pages 75-78,
+ISSN 2210-7789,
+https://doi.org/10.1016/j.preghy.2019.03.004.
+(https://www.sciencedirect.com/science/article/pii/S2210778918306421)
+Abstract: MicroRNAs (miRNAs, miRs) are small regulatory non-coding RNAs that regulate gene expression by incomplete complementary attachment to the 3′UTR, 5′UTR, ORF and promoter regions of target mRNAs. We compared plasma levels of miR-210-3p and miR-517c-3p as cell-free microRNAs (cfmiRNAs) in preeclamptic (n = 20) and healthy women (n = 20). These miRs are responsible for cell growth and proliferation, placental hypoxia, immune response and apoptosis. We found higher expression levels of miR-210 and miR-517c in preeclamptic cases (+3.34 and +2.27 fold change, respectively). This is the first study that evaluates the plasma levels of miR-517c in preeclamptic cases by real time PCR (RT-PCR) technique. This study can lead to new opportunities for research about the roles of miRNAs in preeclampsia etiology or new biomarkers.
+Keywords: miRNAs; Biomarker; Preeclampsia; miR-517c-3p; miR-210-3p

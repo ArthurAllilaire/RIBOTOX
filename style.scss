@@ -20,7 +20,6 @@ $C223: rgb(117, 115, 148);
 $C224: rgb(159, 158, 186);
 
 body {
-	color: red;
 	margin: 0px;
 	font-family: "Baskervville", serif;
 }
@@ -285,16 +284,24 @@ header {
 
 .content {
 	width: 100%;
-	height: 300vh;
-	background-size: 200vw;
+	height: 1000px;
+	// The backround size needs to be static, it can change but then the background position also has to change.
+	background-size: 2500px 2500px;
 	background-image: url(assets/wave1-compressed.png), url(assets/wave2.png);
 	background-repeat: no-repeat;
+	// Under 750 width and need more crests so decrease the width
+	@media screen and (max-width: 740px) {
+		background-size: 2000px 2500px !important;
+	}
+	// Above 2000px doesn't fully cover
+	@media screen and (min-width: 1000px) {
+		background-size: auto;
+		background-position-y: -1200px, -1150px;
+	}
 	// Default position is off the page, one on each side
 	background-position-x: -10vw, -90vw;
-	background-position-y: -900px;
-	@media screen and (max-width: 700px) {
-		background-position-y: -400px !important;
-	}
+	background-position-y: -780px;
+
 	// animation: gradient 2s ease;
 	animation: gradient 15s infinite;
 
@@ -308,6 +315,7 @@ header {
 	}
 	h1 {
 		font-size: 4em;
+		margin: 0px;
 	}
 	h2 {
 		margin-top: 20px;
