@@ -68,7 +68,7 @@ body {
 }
 .into-middle {
 	background-position-x: -50vw !important;
-	transition: all 2s;
+	transition: all 2s ease-out;
 }
 
 header {
@@ -76,7 +76,6 @@ header {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: 3px solid pink;
 
 	.logo-cont {
 		margin-left: 10px;
@@ -258,17 +257,20 @@ header {
 	background-image: url(assets/wave1-compressed.png), url(assets/wave2.png);
 	background-repeat: no-repeat;
 	// Default position is off the page, one on each side
-	background-position-x: 100vw, -200vw;
+	background-position-x: -10vw, -90vw;
 	background-position-y: -900px;
+	@media screen and (max-width: 700px) {
+		background-position-y: -400px !important;
+	}
 	// animation: gradient 2s ease;
-	// animation: gradient 15s ease infinite;
+	animation: gradient 15s infinite;
 
 	.writing {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 300px 200px;
+		padding: 20vh 10vw;
 		color: white;
 	}
 	h1 {

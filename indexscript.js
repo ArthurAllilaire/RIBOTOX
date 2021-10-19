@@ -5,14 +5,17 @@ document.addEventListener('DOMContentLoaded',function(){
         document.querySelector('#loading-video').classList.add('top-left-exit');
         
     }, 2000)
+    setTimeout(function(){
+        // Bring in the waves
+        document.querySelector('.content').classList.add('into-middle');
+    }, 2000)
     // Set the video to autoplay only once the transition is over
     setTimeout(function(){
         const video = document.querySelector('#logo-video').play();
         // Remove the loading div completely
         document.querySelector('.loader-wrapper').style.display = "none";
-        // Bring in the waves
-        document.querySelector('.content').classList.add('into-middle');
-    }, 3000)
+        
+    }, 1000)
    
     document.querySelector('.menu-toggle').addEventListener('click', toggleMenu)
     makeLinkActive();

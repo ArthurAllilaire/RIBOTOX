@@ -67,8 +67,8 @@ body {
 
 .into-middle {
   background-position-x: -50vw !important;
-  -webkit-transition: all 2s;
-  transition: all 2s;
+  -webkit-transition: all 2s ease-out;
+  transition: all 2s ease-out;
 }
 
 header {
@@ -85,7 +85,6 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 3px solid pink;
 }
 
 header .logo-cont {
@@ -298,8 +297,16 @@ header .links-cont .mobile-links a {
   background-size: 200vw;
   background-image: url(assets/wave1-compressed.png), url(assets/wave2.png);
   background-repeat: no-repeat;
-  background-position-x: 100vw, -200vw;
+  background-position-x: -10vw, -90vw;
   background-position-y: -900px;
+  -webkit-animation: gradient 15s infinite;
+          animation: gradient 15s infinite;
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    background-position-y: -400px !important;
+  }
 }
 
 .content .writing {
@@ -316,7 +323,7 @@ header .links-cont .mobile-links a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 300px 200px;
+  padding: 20vh 10vw;
   color: white;
 }
 
