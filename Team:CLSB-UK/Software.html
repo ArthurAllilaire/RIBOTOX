@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software</title>
+    <!-- For mathtext -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <h1>Software</h1>
     <p>Previous teams have created tools to automate design of toehold switches. However, a key aspect of any diagnostic
         tools
         is the accuracy of disease detection. To solve this issue, we designed the first ever software tool to
@@ -24,9 +28,16 @@
         more comfortable using a graphical user interface, we provide a standalone app which also works fully offline.
     </p>
     <h2>Features</h2>
+    <!-- Iframe -->
+    <iframe
+        src="https://www.google.com/url?q=https://thtools.readthedocs.io/en/latest/&sa=D&source=docs&ust=1634727667804000&usg=AOvVaw39YELR9aS1RqQsS2096GNd"
+        title="ToeHold tools docs" width="100%" height="600px">
+    </iframe>
     <ul>
         <li>An easy-to-use programmatic API for investigating the target RNA specificity of toehold switches.</li>
-        <li>Complete documented and permanently hosted online here.</li>
+        <li>Complete documented and permanently hosted online <a
+                href="https://www.google.com/url?q=https://thtools.readthedocs.io/en/latest/&sa=D&source=docs&ust=1634727667802000&usg=AOvVaw3FIMHQU_IV8nAidO50SYm8">
+                here.</a></li>
         <li>A desktop app complete with a graphical user interface for users who prioritise ease over configuration.
         </li>
         <li>Full offline support in both the desktop app and the API, with offline support for the latest release of
@@ -60,7 +71,7 @@
         Defining <strong>S</strong> as the specificity percentage:
     </p>
 
-    <!-- Add mathtext -->
+    <p>\[S = \frac{\mathbb {P} (a) - \mathbb {P} (b)}{\mathbb {P} (a)} \times 100\% \]</p>
 
     <h2>The switch activation model</h2>
     <p>In order to calculate the specificity of the toehold switch we needed a way to quantify its relative activation
@@ -73,7 +84,9 @@
         (i.e., no
         base in the region after the start codon should be bound to any base in or before the start codon).</p>
     <!-- Xi's diagram for software -->
-
+    <figure>
+        <img src="assets/Final_logo.png" alt="Placeholder image">
+    </figure>
     <p>Niles Pierce and Mark Fornace from the NUPACK team informed us that the most accurate way to get a representation
         of a
         toehold switch’s secondary structure was not by the possible structure with the lower mean free energy
@@ -93,16 +106,21 @@
         effect to intended by reducing the specificity to the target RNAs. The following graphs demonstrate this effect
         (CRT is
         an acronym for CelsiusRangeTest, the class in our Python library responsible for drawing these graphs):</p>
-    <!-- Add graphs insert 517-g1.png here with the caption "First generation switch for hsa-miR-517-5p (using an anti-miRNA)", insert 517-g2.png here with the caption "Second generation switch for hsa-miR-517-5p (without using an anti-miRNA)"-->
+    <figure>
+        <img src="517-g1.png" alt="Placeholder image">
+        <figcaption>First generation switch for hsa-miR-517-5p (using an anti-miRNA)</figcaption>
+    </figure>
+    <figure>
+        <img src="517-g2.png" alt="Placeholder image">
+        <figcaption>Second generation switch for hsa-miR-517-5p (without using an anti-miRNA)</figcaption>
+    </figure>
     <p>Although switch activation levels were high in both, the first generation switch lacked specificity to the target
         RNA in
         the desired usage temperature range. We also used our software package to contribute to previous teams’ toehold
         switches—please see our <a href="/Team:CLSB-UK/Contribution"> contributions page </a> for a detailed summary of
         what we accomplished.</p>
 
-    <!-- For mathtext -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </body>
 
 </html>
