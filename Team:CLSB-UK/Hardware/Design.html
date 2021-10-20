@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software</title>
+    <!-- For mathtext -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./../../style.css">
+
+</head>
+
+<body>
+    <div class="no-waves-content-cont">
+        <h2 id="Hardware-h2">Design</h2>
+
+        <figure class="diagram-with-p hardware-figure">
+            <img src="https://2021.igem.org/wiki/images/1/18/T--City_of_London_UK--Hardware_magnetic_beads.png"
+                alt="Description in next paragraph">
+            <figcaption>Samples of blood taken from the patient are added to the initial compartment containing a
+                solution of
+                magnetic beads.
+                Four Electromagnets are turned on and off in succession to spin the beads around the solution (hence
+                stirring the
+                solution), to increase homogeneity of the concentration of the blood miRNA and the magnetic beads.
+                The
+                magnetic beads
+                are pre-prepared with antiRNA strands, complementary to the target miRNAs, immobilised to the beads
+                (by
+                a strong
+                Biotin-Streptavidin bond), to which the target miRNAs bind by base pairing.</figcaption>
+        </figure>
+        <figure class="diagram-with-p hardware-figure" id="img-under">
+            <figcaption>These magnetic beads are then pulled to the side of the compartment and the rest of the
+                liquid is removed, thus
+                extracting the mRNA. This is repeated 3 times (on the removed liquid) to maximise miRNA captured.
+                This extracts all
+                mRNA, including miRNA, which are present in the blood. An elution buffer is then used to unbind the
+                mRNA from the
+                magnetic beads.</figcaption>
+            <img src="https://2021.igem.org/wiki/images/0/05/T--City_of_London_UK--Hardware_RPA_steps.png"
+                alt="RPA steps">
+        </figure>
+        <p>The extracted miRNA, in solution, is then amplified isothermally using RPA, to amplify the final result
+            in order to
+            increase precision and make differentiating between positive and negative results easier by amplifying
+            the difference in
+            concentration that needs to be detected.</p>
+        <p>The amplified miRNA is then added to the second compartment which contains our toehold switches, cell
+            free translation
+            mix and luciferin. The miRNAs bind to the toehold switches, activating them and, hence, triggering the
+            translation of
+            luciferase, which is coded for by the CDS of our toehold switches. The produced luciferase acts on
+            luciferin producing
+            light, which we detect using our self-designed luminometer, which is built into this compartment.</p>
+        <figure style="margin: 0;">
+            <img src="https://2021.igem.org/wiki/images/3/39/T--City_of_London_UK--Hardware_Luciferase_trigger.png"
+                alt="Ribosome translation diagram when it is successful, aorund the binding site" width="100%">
+        </figure>
+        <h2>Parts Table</h2>
+        <table>
+            <tr>
+                <th colspan="1" rowspan="1">
+                    Component
+                    </td>
+                <th colspan="1" rowspan="1">
+                    <p>Cost (£)</p>
+                    </td>
+                <th colspan="1" rowspan="1">
+                    <p>Cost ($)</p>
+                    </td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1">
+                    <p>Atmega328P Board</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>6</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>8.21</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1">
+                    <p>Digital Thermometer</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>3</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>4.10</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1">
+                    <p>LCD</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>3</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>4.10</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1">
+                    <p>LDR</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>3</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>4.10</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1">
+                    <p>Electromagnet</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>&lt;1</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>1.37</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1">
+                    <p>Plastic housing</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>0.20</p>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <p>0.27</p>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="1" rowspan="1">
+                    <p>Total</p>
+                    </td>
+                <th colspan="1" rowspan="1">
+                    <p>£16.20</p>
+                    </td>
+                <th colspan="1" rowspan="1">
+                    <p>$22.15</p>
+                    </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
