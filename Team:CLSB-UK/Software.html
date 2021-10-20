@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p>Previous teams have created tools to automate design of toehold switches. However, a key aspect of any diagnostic
+        tools
+        is the accuracy of disease detection. To solve this issue, we designed the first ever software tool to
+        facilitate
+        understanding of and quantify the target RNA specificity of toehold switches.</p>
+    <p>With over 2000 downloads on the Python Package Index, ToeholdTools is extensively documented and easy to use. It
+        is
+        shipped with the current copy of miRBase (the comprehensive miRNA database) so that any team wishing to test
+        toehold
+        switches for specificity to miRNA biomarkers can do so offline. For users who do not need full configurability
+        and are
+        more comfortable using a graphical user interface, we provide a standalone app which also works fully offline.
+    </p>
+    <h2>Features</h2>
+    <ul>
+        <li>An easy-to-use programmatic API for investigating the target RNA specificity of toehold switches.</li>
+        <li>Complete documented and permanently hosted online here.</li>
+        <li>A desktop app complete with a graphical user interface for users who prioritise ease over configuration.
+        </li>
+        <li>Full offline support in both the desktop app and the API, with offline support for the latest release of
+            miRBase as
+            well.</li>
+        <li>Progress–tracking support in both the desktop app and the API.</li>
+        <li>Type hints and/or stubs are present for all public names in the API to facilitate ease of writing code.</li>
+        <li>High performance—written in Cython and utilizing multiprocessing. On a four core CPU with default settings
+            you can test
+            a toehold switch at a certain temperature with all 2656 miRNAs in miRBase in under two minutes.</li>
+    </ul>
+    <h2>How it works</h2>
+    <p>At the core of ToeholdTools is the idea of testing how specific your toehold switch is to the target RNA. This is
+        essential if you aim to use the switch in any kind of diagnostic test! To do so, we simulate how the switch will
+        behave
+        when in solution with each RNA from a large database of RNAs.</p>
+    <p>Each RNA will form a set of complexes with the toehold switch, each complex having its own concentration. Using
+        Boltzmann sampling, we calculate the probability of each complex being unfolded in a way that permits
+        translation
+        (“activating” the toehold switch) and hence we weight each complex’s overall probability with its concentration
+        to
+        generate an overall activation level with the RNA.</p>
+    <p>This results in a table of the activation level of the toehold switch with each RNA strand, and hence we can
+        calculate
+        the specificity of the toehold switch across the entire RNA dataset by the following expression. Let
+        <strong>a</strong> be the target RNA
+        (we assume that the highest activating RNA is the target in most cases) and <strong>b</strong> be the RNA with
+        the highest activation
+        level in the set of all RNAs in the database which are not <strong>a</strong> (i.e., the RNA with the second
+        highest activation level).
+        Defining <strong>S</strong> as the specificity percentage:
+    </p>
+
+    <!-- Add mathtext -->
+
+    <h2>The switch activation model</h2>
+    <p>In order to calculate the specificity of the toehold switch we needed a way to quantify its relative activation
+        level by
+        its structure. After speaking with Alexander Green we learnt that the most important requirements for a toehold
+        switch’s
+        activation are both the ribosome binding site and the start codon being completely unpaired, while the linker
+        region
+        after the start codon should no longer be part of that hairpin archetypal of an unactivated toehold switch
+        (i.e., no
+        base in the region after the start codon should be bound to any base in or before the start codon).</p>
+    <!-- Xi's diagram for software -->
+
+    <p>Niles Pierce and Mark Fornace from the NUPACK team informed us that the most accurate way to get a representation
+        of a
+        toehold switch’s secondary structure was not by the possible structure with the lower mean free energy
+        (MFE)&mdash;like all
+        previous iGEM teams using toehold switches have done&mdash;but rather by sampling from the Boltzmann
+        distribution of
+        secondary
+        structures using a Boltzmann sampler. This method has the added bonus of being faster and more configurable than
+        the MFE
+        method.
+    </p>
+    <h2>Applications in our project</h2>
+    <p>We used our software to guide us throughout the switch design process. It was able to confirm the information
+        that
+        Alexander Green told us about how using an anti-miRNA in our first generation of switches actually had the
+        opposite
+        effect to intended by reducing the specificity to the target RNAs. The following graphs demonstrate this effect
+        (CRT is
+        an acronym for CelsiusRangeTest, the class in our Python library responsible for drawing these graphs):</p>
+    <!-- Add graphs insert 517-g1.png here with the caption "First generation switch for hsa-miR-517-5p (using an anti-miRNA)", insert 517-g2.png here with the caption "Second generation switch for hsa-miR-517-5p (without using an anti-miRNA)"-->
+    <p>Although switch activation levels were high in both, the first generation switch lacked specificity to the target
+        RNA in
+        the desired usage temperature range. We also used our software package to contribute to previous teams’ toehold
+        switches—please see our <a href="/Team:CLSB-UK/Contribution"> contributions page </a> for a detailed summary of
+        what we accomplished.</p>
+
+    <!-- For mathtext -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>
