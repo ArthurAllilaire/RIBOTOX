@@ -22,6 +22,32 @@ $C224: rgb(159, 158, 186);
 body {
 	margin: 0px;
 	font-family: "Baskervville", serif;
+	// Headings
+	h1 {
+		font-size: 4em;
+		margin: 0px;
+	}
+	h2 {
+		margin-top: 20px;
+		font-size: 2em;
+		color: $C211;
+	}
+	h3 {
+		font-size: 1.2em;
+		color: $C211;
+	}
+	h5 {
+		color: $C211;
+	}
+	a {
+		color: $C122;
+	}
+	a:hover {
+		color: $C111;
+	}
+	a:visited {
+		color: $C113;
+	}
 }
 .bigSonly {
 	@media screen and (max-width: 700px) {
@@ -282,9 +308,9 @@ header {
 	}
 }
 
-.content {
+.intro-content {
 	width: 100%;
-	height: 1000px;
+	height: auto;
 	// The backround size needs to be static, it can change but then the background position also has to change.
 	background-size: 2500px 2500px;
 	background-image: url(assets/wave1-compressed.png), url(assets/wave2.png);
@@ -292,11 +318,12 @@ header {
 	// Under 750 width and need more crests so decrease the width
 	@media screen and (max-width: 740px) {
 		background-size: 2000px 2500px !important;
+		background-position-y: -900px, -800px;
 	}
 	// Above 2000px doesn't fully cover
 	@media screen and (min-width: 1000px) {
 		background-size: auto;
-		background-position-y: -1200px, -1150px;
+		background-position-y: -1250px, -1200px;
 	}
 	// Default position is off the page, one on each side
 	background-position-x: -10vw, -90vw;
@@ -305,20 +332,116 @@ header {
 	// animation: gradient 2s ease;
 	animation: gradient 15s infinite;
 
-	.writing {
+	.intro-text {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 20vh 10vw;
+		padding: 22vh 15vw;
+		font-size: 1em;
 		color: white;
+		h1 {
+			text-align: center;
+		}
+		p {
+			align-self: flex-start;
+		}
+		sup {
+			a {
+				color: white;
+			}
+		}
+		// Under 750 width and need more crests so decrease the width
+		@media screen and (max-width: 740px) {
+			padding: 15vh 20px;
+			h1 {
+				font-size: 3em;
+			}
+		}
+		// Above 2000px doesn't fully cover
+		@media screen and (min-width: 1000px) {
+			font-size: 1.3em;
+		}
 	}
-	h1 {
-		font-size: 4em;
+}
+.main-content-cont {
+	// Headings
+	width: 90%;
+	margin: 0 auto;
+	background-color: white;
+	margin-top: -20vh;
+	border-radius: 15px;
+	padding: 2vh 2vw;
+
+	// Under 750 width and need more crests so decrease the width
+	@media screen and (max-width: 750px) {
+		margin-top: -15vh;
+	}
+	// Above 2000px doesn't fully cover
+	@media screen and (min-width: 1000px) {
+		font-size: 1.3em;
+	}
+
+	img {
+		max-width: 100%;
+		padding-bottom: 20px;
+	}
+	figure {
 		margin: 0px;
+		blockquote {
+			margin: 0px;
+			padding: 20px 0px;
+			font-weight: bold;
+		}
+		.quote-highlight {
+			background-color: $C121;
+
+			color: $C211;
+		}
+		figcaption {
+			color: $C213;
+		}
+		.name-caption {
+			color: $C111;
+		}
 	}
-	h2 {
-		margin-top: 20px;
+	.bottom-links {
+		width: 100%;
+		ul {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			list-style: none;
+			justify-content: space-around;
+
+			padding: 0px;
+			margin: 0px;
+			li {
+				box-shadow: 0px 0px 3px 2px rgba(208, 55, 87, 0.1);
+				border-radius: 15px;
+				width: 250px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				a {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					text-decoration: none;
+				}
+				margin-right: 20px;
+				margin-bottom: 20px;
+				img {
+					width: 200px;
+					border-radius: 10px;
+					padding: 20px;
+				}
+				h3 {
+					margin: 0px;
+					padding: 10px;
+				}
+			}
+		}
 	}
 }
 
