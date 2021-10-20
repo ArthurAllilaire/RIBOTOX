@@ -125,6 +125,7 @@ header {
   top: 0px;
   width: 100%;
   background: white;
+  font-size: 1em;
 }
 
 header .logo-cont {
@@ -416,15 +417,15 @@ header .links-cont .mobile-links a {
   padding: 2vh 2vw;
 }
 
-@media screen and (max-width: 750px) {
-  .main-content-cont {
-    margin-top: -15vh;
-  }
-}
-
 @media screen and (min-width: 1000px) {
   .main-content-cont {
     font-size: 1.3em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .main-content-cont {
+    margin-top: -15vh;
   }
 }
 
@@ -519,6 +520,15 @@ header .links-cont .mobile-links a {
 .main-content-cont .bottom-links ul li h3 {
   margin: 0px;
   padding: 10px;
+}
+
+.footnotes {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.footnotes li {
+  line-height: 1.5em;
 }
 
 @-webkit-keyframes gradient {

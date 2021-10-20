@@ -22,6 +22,7 @@ $C224: rgb(159, 158, 186);
 body {
 	margin: 0px;
 	font-family: "Baskervville", serif;
+
 	// Headings
 	h1 {
 		font-size: 4em;
@@ -129,6 +130,7 @@ header {
 	top: 0px;
 	width: 100%;
 	background: white;
+	font-size: 1em;
 
 	.logo-cont {
 		margin-left: 15px;
@@ -372,15 +374,15 @@ header {
 	margin-top: -20vh;
 	border-radius: 15px;
 	padding: 2vh 2vw;
+	@media screen and (min-width: 1000px) {
+		font-size: 1.3em;
+	}
 
 	// Under 750 width and need more crests so decrease the width
 	@media screen and (max-width: 750px) {
 		margin-top: -15vh;
 	}
 	// Above 2000px doesn't fully cover
-	@media screen and (min-width: 1000px) {
-		font-size: 1.3em;
-	}
 
 	img {
 		max-width: 100%;
@@ -442,6 +444,13 @@ header {
 				}
 			}
 		}
+	}
+}
+.footnotes {
+	width: 90%;
+	margin: 0 auto;
+	li {
+		line-height: 1.5em;
 	}
 }
 
