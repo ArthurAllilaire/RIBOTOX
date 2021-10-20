@@ -697,6 +697,13 @@ table th {
   padding: 10px;
 }
 
+.massive-diagram {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  display: block;
+}
+
 @-webkit-keyframes gradient {
   0% {
     background-position-x: 0vw, -100vw;
