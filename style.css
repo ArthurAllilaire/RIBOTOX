@@ -3,6 +3,15 @@ body {
   font-family: "Baskervville", serif;
 }
 
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  color: #30307e;
+}
+
 body h1 {
   font-size: 4em;
   margin: 0px;
@@ -11,16 +20,10 @@ body h1 {
 body h2 {
   margin-top: 20px;
   font-size: 2em;
-  color: #30307e;
 }
 
 body h3 {
   font-size: 1.2em;
-  color: #30307e;
-}
-
-body h5 {
-  color: #30307e;
 }
 
 body a {
@@ -548,6 +551,46 @@ header .links-cont .mobile-links a {
 
 .footnotes li {
   line-height: 1.5em;
+}
+
+.no-waves-content-cont {
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: 2vh 2vw;
+}
+
+@media screen and (min-width: 1200px) {
+  .no-waves-content-cont {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .no-waves-content-cont {
+    font-size: 1.3em;
+  }
+}
+
+.no-waves-content-cont .diagram-with-p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0px;
+}
+
+.no-waves-content-cont .diagram-with-p img {
+  margin-right: 20px;
+  -webkit-box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
+          box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
+  border-radius: 5px;
 }
 
 @-webkit-keyframes gradient {
