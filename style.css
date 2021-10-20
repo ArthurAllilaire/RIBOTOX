@@ -417,6 +417,12 @@ header .links-cont .mobile-links a {
   padding: 2vh 2vw;
 }
 
+@media screen and (min-width: 1200px) {
+  .main-content-cont {
+    width: 80%;
+  }
+}
+
 @media screen and (min-width: 1000px) {
   .main-content-cont {
     font-size: 1.3em;
@@ -472,8 +478,9 @@ header .links-cont .mobile-links a {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   list-style: none;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   padding: 0px;
   margin: 0px;
 }
@@ -525,6 +532,18 @@ header .links-cont .mobile-links a {
 .footnotes {
   width: 90%;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 1200px) {
+  .footnotes {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .footnotes {
+    font-size: 1.3em;
+  }
 }
 
 .footnotes li {

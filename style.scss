@@ -369,6 +369,9 @@ header {
 .main-content-cont {
 	// Headings
 	width: 90%;
+	@media screen and (min-width: 1200px) {
+		width: 80%;
+	}
 	margin: 0 auto;
 	background-color: white;
 	margin-top: -20vh;
@@ -414,7 +417,7 @@ header {
 			flex-direction: row;
 			flex-wrap: wrap;
 			list-style: none;
-			justify-content: space-around;
+			justify-content: start;
 
 			padding: 0px;
 			margin: 0px;
@@ -448,6 +451,12 @@ header {
 }
 .footnotes {
 	width: 90%;
+	@media screen and (min-width: 1200px) {
+		width: 80%;
+	}
+	@media screen and (min-width: 1000px) {
+		font-size: 1.3em;
+	}
 	margin: 0 auto;
 	li {
 		line-height: 1.5em;
