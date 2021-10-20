@@ -314,6 +314,9 @@ header {
 }
 
 .intro-content {
+	h1 {
+		color: white !important;
+	}
 	width: 100%;
 	height: auto;
 	// The backround size needs to be static, it can change but then the background position also has to change.
@@ -372,14 +375,14 @@ header {
 .main-content-cont {
 	// Headings
 	width: 90%;
-	@media screen and (min-width: 1200px) {
+	@media screen and (min-width: 900px) {
 		width: 80%;
 	}
 	margin: 0 auto;
 	background-color: white;
 	margin-top: -20vh;
 	border-radius: 15px;
-	padding: 2vh 2vw;
+	padding: 4vw;
 	@media screen and (min-width: 1000px) {
 		font-size: 1.3em;
 	}
@@ -412,44 +415,6 @@ header {
 			color: $C111;
 		}
 	}
-	.bottom-links {
-		width: 100%;
-		ul {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			list-style: none;
-			justify-content: start;
-
-			padding: 0px;
-			margin: 0px;
-			li {
-				box-shadow: 0px 0px 3px 2px rgba(208, 55, 87, 0.1);
-				border-radius: 15px;
-				width: 250px;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				a {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					text-decoration: none;
-				}
-				margin-right: 20px;
-				margin-bottom: 20px;
-				img {
-					width: 200px;
-					border-radius: 10px;
-					padding: 20px;
-				}
-				h3 {
-					margin: 0px;
-					padding: 10px;
-				}
-			}
-		}
-	}
 }
 .footnotes {
 	width: 90%;
@@ -479,19 +444,137 @@ header {
 	@media screen and (min-width: 1000px) {
 		font-size: 1.3em;
 	}
-	.diagram-with-p {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin: 20px 0px;
+}
+// HARDWARE STYLINGS
+.hardware-main-cont,
+.hardware-cont {
+	padding-bottom: 50px;
+	.intro-text {
+		padding-bottom: 30px !important;
+	}
+	#main-luminometer-photo {
+		background-color: white;
+		width: fit-content;
+		min-width: 250px;
+		margin: auto;
+		margin-bottom: 20px;
+
+		border-radius: 10px;
+		overflow: hidden;
+		padding: 20px;
+		figure {
+			margin: 0;
+		}
+		#main-luminometer-caption {
+			padding-top: 20px;
+			text-align: center;
+			color: $C213;
+		}
+	}
+	#luminometer {
+		background-color: white;
+		width: 70vw;
+		max-width: 500px;
+		margin: 0;
+		border-radius: 10px;
+		box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
+		overflow: hidden;
+
 		img {
-			margin-right: 20px;
-			box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
-			border-radius: 5px;
+			margin: -30% auto;
+			width: 100%;
+			border-radius: 10px;
 		}
 	}
 }
 
+// Different types of diagram and premade CSS
+.diagram-with-p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 0px;
+	img {
+		margin-right: 20px;
+		box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
+		border-radius: 5px;
+	}
+}
+#img-under {
+	flex-direction: column;
+	figcaption {
+		padding-bottom: 20px;
+	}
+}
+.hardware-figure {
+	margin: 20px 0px !important;
+}
+// TABLE css
+table {
+	width: 100%;
+	border-spacing: 0px;
+	text-align: center;
+
+	table,
+	th,
+	td {
+		border: 1px solid $C224;
+		padding: 0px;
+	}
+	th,
+	td {
+		width: 33%;
+	}
+	th {
+		font-weight: bold;
+	}
+}
+// NAV CSS
+.bottom-links {
+	width: 100%;
+	ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		list-style: none;
+		justify-content: start;
+
+		padding: 0px;
+		margin: 0px;
+		li {
+			background-color: white;
+			box-shadow: 0px 0px 3px 2px rgba(208, 55, 87, 0.1);
+			border-radius: 15px;
+			width: 250px;
+			height: 200px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding-top: 30px;
+			a {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-decoration: none;
+				.nav-link-photo {
+					width: 200px !important;
+					height: 150px !important;
+				}
+			}
+			margin-right: 20px;
+			margin-bottom: 20px;
+			img {
+				width: 200px;
+				border-radius: 10px;
+				padding: 20px;
+			}
+			h3 {
+				margin: 0px;
+				padding: 10px;
+			}
+		}
+	}
+}
 @keyframes gradient {
 	0% {
 		background-position-x: 0vw, -100vw;

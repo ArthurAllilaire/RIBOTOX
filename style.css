@@ -350,6 +350,10 @@ header .links-cont .mobile-links a {
           animation: gradient 15s infinite;
 }
 
+.intro-content h1 {
+  color: white !important;
+}
+
 @media screen and (max-width: 740px) {
   .intro-content {
     background-size: 2000px 2500px !important;
@@ -417,10 +421,10 @@ header .links-cont .mobile-links a {
   background-color: white;
   margin-top: -20vh;
   border-radius: 15px;
-  padding: 2vh 2vw;
+  padding: 4vw;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 900px) {
   .main-content-cont {
     width: 80%;
   }
@@ -466,72 +470,6 @@ header .links-cont .mobile-links a {
   color: #d03757;
 }
 
-.main-content-cont .bottom-links {
-  width: 100%;
-}
-
-.main-content-cont .bottom-links ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  list-style: none;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  padding: 0px;
-  margin: 0px;
-}
-
-.main-content-cont .bottom-links ul li {
-  -webkit-box-shadow: 0px 0px 3px 2px rgba(208, 55, 87, 0.1);
-          box-shadow: 0px 0px 3px 2px rgba(208, 55, 87, 0.1);
-  border-radius: 15px;
-  width: 250px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-
-.main-content-cont .bottom-links ul li a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-decoration: none;
-}
-
-.main-content-cont .bottom-links ul li img {
-  width: 200px;
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.main-content-cont .bottom-links ul li h3 {
-  margin: 0px;
-  padding: 10px;
-}
-
 .footnotes {
   width: 90%;
   margin: 0 auto;
@@ -573,7 +511,62 @@ header .links-cont .mobile-links a {
   }
 }
 
-.no-waves-content-cont .diagram-with-p {
+.hardware-main-cont,
+.hardware-cont {
+  padding-bottom: 50px;
+}
+
+.hardware-main-cont .intro-text,
+.hardware-cont .intro-text {
+  padding-bottom: 30px !important;
+}
+
+.hardware-main-cont #main-luminometer-photo,
+.hardware-cont #main-luminometer-photo {
+  background-color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 250px;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.hardware-main-cont #main-luminometer-photo figure,
+.hardware-cont #main-luminometer-photo figure {
+  margin: 0;
+}
+
+.hardware-main-cont #main-luminometer-photo #main-luminometer-caption,
+.hardware-cont #main-luminometer-photo #main-luminometer-caption {
+  padding-top: 20px;
+  text-align: center;
+  color: #0c1f4a;
+}
+
+.hardware-main-cont #luminometer,
+.hardware-cont #luminometer {
+  background-color: white;
+  width: 70vw;
+  max-width: 500px;
+  margin: 0;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
+          box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
+  overflow: hidden;
+}
+
+.hardware-main-cont #luminometer img,
+.hardware-cont #luminometer img {
+  margin: -30% auto;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.diagram-with-p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -586,11 +579,122 @@ header .links-cont .mobile-links a {
   margin: 20px 0px;
 }
 
-.no-waves-content-cont .diagram-with-p img {
+.diagram-with-p img {
   margin-right: 20px;
   -webkit-box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
           box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
   border-radius: 5px;
+}
+
+#img-under {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#img-under figcaption {
+  padding-bottom: 20px;
+}
+
+.hardware-figure {
+  margin: 20px 0px !important;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0px;
+  text-align: center;
+}
+
+table table,
+table th,
+table td {
+  border: 1px solid #9f9eba;
+  padding: 0px;
+}
+
+table th,
+table td {
+  width: 33%;
+}
+
+table th {
+  font-weight: bold;
+}
+
+.bottom-links {
+  width: 100%;
+}
+
+.bottom-links ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  list-style: none;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  padding: 0px;
+  margin: 0px;
+}
+
+.bottom-links ul li {
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 3px 2px rgba(208, 55, 87, 0.1);
+          box-shadow: 0px 0px 3px 2px rgba(208, 55, 87, 0.1);
+  border-radius: 15px;
+  width: 250px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 30px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.bottom-links ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
+.bottom-links ul li a .nav-link-photo {
+  width: 200px !important;
+  height: 150px !important;
+}
+
+.bottom-links ul li img {
+  width: 200px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.bottom-links ul li h3 {
+  margin: 0px;
+  padding: 10px;
 }
 
 @-webkit-keyframes gradient {
