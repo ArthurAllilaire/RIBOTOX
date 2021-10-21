@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelling</title>
+    <!-- For mathtext -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./../../style.css">
+
+</head>
+
+<body class="model-cont">
+    <div class="intro-content ">
+        <div class="intro-text">
+            <h1>Modelling</h1>
+            <h3 class="blue-heading">The home of real integration</h3>
+
+            <ul>
+                <li><a href="#MAK">Complex concentration MAK model</a></li>
+                <li><a href="#NUPACK">NUPACK model</a></li>
+                <li><a href="#Cost">Cost model</a></li>
+            </ul>
+            <h2>MASS ACTION KINETICS MODEL</h2>
+            <p>With the help of Imperial College’s 2020 Math Modelling paper <sup id="cite_ref-1"><a
+                        href="https://2020.igem.org/wiki/images/9/96/T--Imperial_College--introtomodelling.pdf">[1]</a></sup>,
+                we created a mass action kinetics
+                model, which models the concentration of our final miRNA-antimiRNA complex relative to time and initial
+                miRNA
+                concentration.</p>
+            <p><i>Initially:</i> to form an miRNA-antimiRNA AND gate complex, we need both the 210-3p and 517-5p miRNAs.
+                Whichever miRNA has
+                the lowest concentration will be the limiting factor, and hence the concentration of the lesser miRNA is
+                considered as
+                the concentration of the binding molecule.</p>
+            <h3>Assumptions</h3>
+            <ol>
+                <li>The binding rates of the two miRNAs are equal</li>
+                <ol class="lettered-list">
+                    <li>Two similar miRNAs, will have minimal variance in bond formation and interactions with targets
+                    </li>
+                </ol>
+                <li>The concentration of miRNA = the concentration of the limiting miRNA</li>
+                <ol class="lettered-list">
+                    <li>The lesser miRNA is the limiting factor, and hence the excess of the greater miRNA does not have
+                        to be considered</li>
+                </ol>
+                <li>The hill coefficient of the miRNAs binding to the antimiRNA = number of binding sites = 2</li>
+                <ol class="lettered-list">
+                    <li>In an ideal situation, the coefficient of the ligand is the hill coefficient. In reality, due to
+                        successive binding, it
+                        will be around 1.2.<sup id="cite_ref-2"><a href="#cite_ref-2">[2]</a></sup></li>
+                </ol>
+                <li>k<sub>d</sub>: rate of backwards reaction is half the rate of k <sub>a</sub></li>
+                <ol class="lettered-list">
+                    <li>Assumption given that the forward reaction is favourable but is still reversible. We could not
+                        find an exact value for
+                        the miRNA dissociation.</li>
+                </ol>
+                <li>Assumes all m bind to A simultaneously, not in succession</li>
+                <ol class="lettered-list">
+                    <li>Allows anyone to adapt our model with little to no experimental data</li>
+                </ol>
+                <li>Diffusion take 0 time, ie is instantaneous</li>
+                <ol class="lettered-list">
+                    <li>
+                        Our system is a weakly viscous liquid solution, which justifies our assumption
+                    </li>
+                </ol>
+            </ol>
+        </div>
+    </div>
+    <div class="main-content-cont model-cont-2">
+        <div class="main-content">
+            <h4>Variables:</h4>
+            <ul>
+                <li><strong>A</strong>=antimiRNA</li>
+                <li><strong>m</strong>=miRNA</li>
+                <li><strong>C</strong>=complex</li>
+                <li>
+                    <strong>k</strong>=rate
+                    <ul>
+                        <li>k<sub>a</sub>=rate of forward reaction</li>
+                        <li>k<sub>d</sub>=rate of forward reaction</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>K</strong>=equilibrium constant
+                    <ul>
+                        <li><strong>K<sub>a</sub></strong>=Forward association reaction</li>
+                        <li><strong>K<sub>d</sub></strong>=Backwards dissociation reaction</li>
+                    </ul>
+                </li>
+            </ul>
+            <table>
+                <tr>
+                    <th class="padded">Constant</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <th class="padded not-bold">Rate of miRNA-mRNA binding
+
+                        (when miRNA is the limiting factor)</th>
+                    <th class="not-bold">2x10<sup>-3</sup>/mole/sec<sup id="cite_ref-3"><a
+                                href="#cite_ref-3">[3]</a></sup></th>
+                </tr>
+            </table>
+            <p>From basic stoichiometric factors that our complex formation equation will look like:</p>
+            <ol>
+                <li>\(A + nm ⇌ C\)</li>
+                <ol class="lettered-list">
+                    <li><strong>n = 2</strong> (Number of miRNAs binding to our antimiRNA. In an ideal world, this is
+                        our Hill
+                        coefficient, where the two miRNAs
+                        show high positive cooperativity. In reality the hill coefficaient will be around 1.2<sup
+                            id="cite_ref-4"><a href="#cite_ref-4">[4]</a></sup></li>
+                </ol>
+                <li>\(A + 2m ⇌ C\)</li>
+            </ol>
+            <p>From general equilibrium constant rules, we know that:</p>
+            <ol>
+                <li class="mathjax-li">\[\boldsymbol{K_a} = \frac{[C]}{[A][m]^n} \]</li>
+                <li class="mathjax-li">\[\boldsymbol{K_b} = \frac{[A][m]^n}{[C]} \]</li>
+            </ol>
+            <p>At equilibrium, the change in complex concentration will equal 0</p>
+            <ol>
+                <li class="mathjax-li">\[\frac{d[c]}{dt} = \boldsymbol{K_a[A][m]^2 - k_d[C] = 0} \]</li>
+                <li class="mathjax-li">\[\boldsymbol{K_a[A][m]^2 - k_d[C] = 0} \]</li>
+                <li class="mathjax-li">\[\boldsymbol{\frac{k_a}{k_d} =} \frac{[C]}{[A][m]^2} \boldsymbol{= K_a} \]
+                    <ol class="mathjax-li lettered-list">
+                        <li class="mathjax-li">\[\boldsymbol{K_d = \frac{k_d}{k_a}}\]
+                    </ol>
+                </li>
+            </ol>
+            <p>Applying the Hill equation from the Imperial College Paper:</p>
+            <ol>
+                <li class="mathjax-li">\[The \ ratio \ of \ Bound \ A:Total \ A = \frac{[C]}{[A]+[C]} = \theta \]</li>
+                <li class="mathjax-li">\[Subbing \ in \ [C] = \frac{[A][m]^2}{K_d} \]</li>
+                <li class="mathjax-li">\[Becomes: \theta = \frac{(\frac{[A][m]^2}{K_d})}{[A] + \frac{[A][m]^2}{K_d}} \]
+                </li>
+                <li class="mathjax-li">\[Divide \ through \ by \ [A] \ and \ multply \ numberator \ and \ denominator \
+                    by \ K_d \]
+                </li>
+                <li class="mathjax-li">\[We \ obtain: \frac{[m]^2}{K_d + [m]^2} \]
+                </li>
+            </ol>
+            <p>In action we know that:</p>
+            <ol>
+                <li class="mathjax-li">\[ [C] = [A_{initial}] * \theta = [A_{initial}] * \frac{[m]^2}{K_d + [m]^2} \]
+                </li>
+            </ol>
+            <p>We know that:</p>
+            <ol>
+                <li class="mathjax-li">\[ From \ research: \ k_a = 2*10^{-3} \ mol^{-1}s^{-1} \]
+                </li>
+                <li class="mathjax-li">\[ And \ from \ assumption: \ k_d = \frac 12 k_a\]
+                </li>
+                <li class="mathjax-li">\[ Therefore: \ K_d = \frac{k_d}{k_a} = \frac 12 \]
+                </li>
+            </ol>
+            <p>We know that \( \boldsymbol{A + 2m ⇌ C}\) </p>
+            <ul>
+                <li>And we need \([A_{initial}]≥ ½ [m]\)</li>
+                <li>To set \([A_{initial}]\) to the minimum for it to not be a limiting factor, \([A_{initial}] = ½
+                    [m]\). By doing this, we can reduce
+                    the wastage of the excess of \([A_{initial}]\)</li>
+            </ul>
+            <p>Therefore:</p>
+            <ol>
+                <li class="mathjax-li">\[[C_{equilibrium}] = [A_{initial}] * \frac{[m]^2}{K_d + [m]^2} \]</li>
+                <li class="mathjax-li">\[= \frac 12 [m] * \frac{[m]^2}{\frac 12 + [m]^2} \]</li>
+                <li class="mathjax-li">\[= \frac{\frac 12 [m]^3}{\frac 12 + [m]^2} \]</li>
+            </ol>
+            <p>Plotting this graph, with [m] on the horizontal axis and [C] on the vertical axis we get a graph looking
+                like:</p>
+            <img src="https://2021.igem.org/wiki/images/thumb/f/f8/T--City_of_London_UK--Modelling_m_against_c.png/800px-T--City_of_London_UK--Modelling_m_against_c.png"
+                alt="Graph of [m] against [C]">
+            <p>This graph shows the relationship between final complex concentration relative to the initial lesser
+                miRNA
+                concentration. Beyond the limits shown on this graph, the equations becomes nigh-linear.</p>
+            <p></p>
+            <p>Now we go back to our initial steps.</p>
+            <p>\[We \ iterated: \frac{d[c]}{dt} \boldsymbol{=k_a[A][m]^2-k_d[C]}\]</p>
+            <p>over time to figure out the complex concentration against time, knowing that \(k_a = 2*10^{-3} \
+                mol^{-1}s^{-1}\) and \(k_d\) is assumed to be half of \(k_a\).</p>
+            <p>The purpose of this step was to identify at which point in time the concentrations of the complexes
+                significantly
+                differed between preeclampsia patients and unaffected people.</p>
+            <p>From our preliminary project research, we found out that the miRNAs in preeclampsia patients were
+                upregulated by 4 fold.
+                With this information, we produced two graphs, one of which had quadruple the concentration of miRNA of
+                the other, ie:
+                0.1M and 0.4M.</p>
+            <p>In addition, we did not set our anti miRNA concentration to double the miRNA concentration as we wanted
+                to keep the
+                miRNA concentrations as our only independent variable. Therefore, we set anti miRNA concentration to an
+                excess of 2M
+                instead of 0.2M and 0.8M respectively.</p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <figcaption>Graph showing complex concentration against time, with 0.1M of limiting miRNA and 2.0M of
+                    anti miRNA</figcaption>
+                <img src="https://2021.igem.org/wiki/images/thumb/e/e9/T--City_of_London_UK--Modelling_concentration_0.1M.png/771px-T--City_of_London_UK--Modelling_concentration_0.1M.png"
+                    alt="Complex concentration vs. time (0.1M,2M)">
+            </figure>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <figcaption>Graph showing complex concentration against time, with 0.4M of limiting miRNA and 2.0M of
+                    anti miRNA</figcaption>
+                <img src="https://2021.igem.org/wiki/images/thumb/d/d1/T--City_of_London_UK--Modelling_concentration_0.4M.png/786px-T--City_of_London_UK--Modelling_concentration_0.4M.png"
+                    alt="Complex concentration vs. time (0.4M,2M)">
+            </figure>
+            <p>As can be seen from the graphs, it was actually the case that at quadruple the concentration of miRNA,
+                the complex
+                concentrations rapidly diverged between the two samples, almost within seconds of iteration. Both took
+                the same amount
+                of time to reach equilibrium (ie. time taken to plateau). At 5000s past zero, the concentrations of the
+                two samples
+                differed by 15 times, which was definitely significant enough to cover all errors due to toehold
+                leakiness, human error,
+                and other environmental factors.</p>
+            <h2 style="text-align: center;">Improvement on BATMAN 2017</h2>
+            <p>Now using our AND gate model, we can substitute our calculated complex concentration as ‘miRNA’ on
+                BATMAN’s model.</p>
+            <p>To figure out Firefly luciferase luminescence instead of GFP expression, the next step would only require
+                the
+                substitution of 2 rates: the transcription and translation rates of luciferase instead of GFP.</p>
+            <p>Once the substitution is done, our model and the BATMAN’s Mass Action Kinetics Model can be combined to
+                provide future
+                researchers and teams a tool to predict reporter gene expression relative to initial limiting miRNA
+                concentration in a
+                single Toehold Switch system involving multiple miRNAs in an AND gate.</p>
+            <h2 style="text-align: center;">Limitations</h2>
+            <ol>
+                <li>
+                    Hill coefficient is NOT 2 in real life
+                    <ol class="lettered-list">
+                        <li>This will mean that less miRNA will bind to the anti miRNA than theoretically expected.</li>
+                    </ol>
+                </li>
+                <li>
+                    Complex concentration over time graphs inaccurate
+                    <ol class="lettered-list">
+                        <li>0.1M and 0.4M are exaggerated values and in reality, the miRNA concentrations in blood
+                            plasma/amplified product will be
+                            much less.</li>
+                        <li>This however, can be overcome by fixing the anti miRNA concentration of 2.0M to a reasonable
+                            excess concentration
+                            compared to the concentration in the blood plasma.</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+    <div class="intro-content ">
+        <div class="intro-text">
+            <h1 id="NUPACK">Nupack Model</h1>
+            <p>Using the NUPACK API, we developed a python script that would explore the specificity and activation of
+                the toehold
+                switch with our miRNA at different temperatures. The activation percentage is a scale of how often the
+                AUG is exposed
+                when a given toehold switch-trigger miRNA reaction takes place.</p>
+            <p>The specificity is a measure of how precise the toehold switch is at activating in response to our
+                trigger miRNA as
+                opposed to any other human miRNA. It is calculated by the percentage increase of activation percent of
+                our trigger miRNA
+                compared to their homologs.</p>
+            <h4>Part BBa_K3905000, gen1 517-5p Toehold Switch</h4>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img src="https://2021.igem.org/wiki/images/thumb/a/ac/T--City_of_London_UK--Software_517-g1.png/800px-T--City_of_London_UK--Software_517-g1.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch">
+                <figcaption style="color: white; ">The activation percentage for this graph rises
+                    steadily from 14% at 0
+                    degrees to a peak of
+                    44% at 55 degrees. At more
+                    hot temperatures, the activation percentage drops rapidly and at 80 degrees, the activation
+                    percentage returns to 14%.
+                    The specificity follows a different pattern, as the temperature increases the specificity decreases.
+                    Between 0 and 40
+                    degrees a strong ~80% specificity was detected. After that, there is a decrease in the specificity.
+                    This switch was
+                    designed to operate at 30 degrees and this data supports this as a possible optimum temperature.
+                    This data point has the
+                    greatest activation percentage for all points that have a ~80% specificity.</figcaption>
+            </figure>
+        </div>
+    </div>
+    <div class="main-content-cont model-cont">
+        <div class="main-content">
+            <h4>Part BBa_K3905002 gen 1 210-3p Toehold Switch</h4>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <!-- Wrong graph should be Part BBa_K3905002 gen 1 210-3p Toehold Switch -->
+                <img src="https://2021.igem.org/wiki/images/2/24/T--City_of_London_UK--Modelling_210-2p_g1.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch">
+                <figcaption>This dissatisfactory switch had a low activation percentage (~0%) and low specificity (~10%)
+                    for all points between 0
+                    and 40 degrees. After this, both measures rose sharply and an activation percentage of over 50% was
+                    recorded past 80
+                    degrees. The specificity also rose sharply with an ~80% value achieved at 60 degrees before dropping
+                    again. At 60
+                    degrees the switch has an activation of 38% and a high specificity. This would make it the ideal
+                    temperature to operate
+                    at. However, it is not feasible to run a simple test at such a high temperature. This, along with
+                    Professor Green’s
+                    recommendation is the reason why our first generation switches were replaced by our second
+                    generation switches.</figcaption>
+            </figure>
+            <h4>Part BBa_K3905004 gen 2 517-5p Toehold Switch</h4>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img src="https://2021.igem.org/wiki/images/thumb/3/39/T--City_of_London_UK--Software_517-g2.png/800px-T--City_of_London_UK--Software_517-g2.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch">
+                <figcaption>The activation of this switch is much higher than the first generation switch. This has a
+                    steady high activation around
+                    65% for temperatures 0-60 degrees. After these temperatures, the activation drops towards 30%. As
+                    worried, this series
+                    of switches would be less specific due to the lack of an anti-miRNA and here, the specificity at 30
+                    and 40 degrees is a
+                    much lower 20% compared to the 80% in the first generation. The specificity increases between 10 and
+                    70 degrees,
+                    eventually peaking above 40%. In practice, this lower specificity is still good enough to provide
+                    reliable positive
+                    tests especially when this toehold switch is combined with our RPA methods which amplifies the
+                    concentration of only
+                    miRNA 517-5p.</figcaption>
+            </figure>
+            <h4>Part BBa_K3905005 gen 2 210-3p Toehold Switch</h4>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <!-- Wrong graph -->
+                <img src="https://2021.igem.org/wiki/images/4/42/T--City_of_London_UK--Modelling_210-2p_g2.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch">
+                <figcaption>This switch performs superbly in these software tests, especially in comparison to it’s
+                    first generation counterpart. At
+                    0 degrees the activation percentage is ~40% and this figure rises to a wide peak at 40 degrees with
+                    an activation of
+                    ~70%. By 70 degrees the activation percentage is 40% before reaching 0 at 80 and 90 degrees. The
+                    activation of this
+                    switch is above 80% between 0 and 70 degrees before dropping to 0% at 80 degrees. This switch was
+                    designed to operate at
+                    a temperature of 37 degrees, which explains why this switch peaks in activation at 40 degrees. This
+                    switch can
+                    accurately perform their task at temperatures lower than body temperature which makes practical use
+                    of the switch much
+                    simpler.</figcaption>
+            </figure>
+        </div>
+    </div>
+    <div class="intro-content ">
+        <div class="intro-text">
+            <h1 id="Cost">Cost Model</h1>
+            <p>The statistics will focus on the UK since that’s our expertise and where we have got a lot of data on,
+                also prices will
+                be easier to assess since that's where we are based.</p>
+            <p>Please note before:</p>
+            <ul>
+                <li>Lower bounds of everything used to show that even in the worst case its still cost effective</li>
+                <li>QALY stands for quality adjusted life year, and is one year of ‘good health’.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="main-content-cont model-cont-2">
+            <h2>The calculations:</h2>
+            <p>Births in the UK in 2019 were 712,0001<sup id="cite_ref-5"><a href="#cite_ref-5">[5]</a></sup></p>
+            <p>6% of total pregnancies suffer from preeclampsia<sup id="cite_ref-6"><a href="#cite_ref-6">[6]</a></sup>
+                \(= 712,000 * 0.06 = 42720 \) </p>
+            <p>Since in multiple studies there was high upregulation of the specific miRNAs we are testing for, we will
+                assume the
+                sensitivity to be 100%, meaning everybody who has preeclampsia will test positive. While false positives
+                will obviously
+                arise since the cost of the treatment is quite low in terms of the extra medication and the like we can
+                ignore these
+                since we have no concrete figures on the false positive rate anyway.</p>
+            <p>Thus, assuming we identify every one and use the range of treatments possible (and assume that the lowest
+                bound of
+                people are treated), we can prevent around 60% of preeclampsia cases, and assuming the same proportion
+                of serious
+                complications are also prevented will be assumed.<sup id="cite_ref-7"><a
+                        href="#cite_ref-7">[7]</a></sup></p>
+            <h3>42720 * 0.6 = 25632 prevented preeclampsia cases</h3>
+            <h2>Looking at the main complications</h2>
+            <p>In regard to the study about the incidence rate of complications in pre-eclampsia - the overall
+                preeclampsia rate was
+                around 6% in this study which backs up the NHS’ figure of around 6%. The study was also done in Scotland
+                which is great
+                since it's the UK. While the data is a bit dated, the incidence of certain conditions given preeclampsia
+                shouldn’t
+                change much since we haven’t really become much better at predicting and treating preeclampsia since
+                2000.</p>
+            <ol>
+                <li>Eclampsia:
+                    <ul class="dashed-list">
+                        <li>1.65% of preeclampsia births<sup id="cite_ref-8"><a href="#cite_ref-8">[8]</a></sup> → 422
+                            eclampsia sufferers</li>
+                        <li>Perinatal death rate 5.6%<sup id="cite_ref-9"><a href="#cite_ref-9">[9]</a></sup> → 24
+                            deaths (among children and late stage pregnancies)</li>
+                        <li>Maternal death rate<sup id="cite_ref-9"><a href="#cite_ref-9">[9]</a></sup> → Reported to be
+                            between 0 and 1.8%, hence as lower bound none assumed.</li>
+                        <li>While life expectancy in the UK is 81 years, we will use 70 to account for any health
+                            complications and premature death
+                            that result from eclampsia that result in less QALY.</li>
+                        <li>Total QALY given → 1680</li>
+
+                    </ul>
+                </li>
+                <li>Abruptio Placentae
+                    <ul class="dashed-list">
+                        <li>2.89%<sup id="cite_ref-8"><a href="#cite_ref-8">[8]</a></sup> of preeclampsia births → 740
+                            sufferers</li>
+                        <li>Perinatal death rate 10%<sup id="cite_ref-10"><a href="#cite_ref-10">[10]</a></sup> → 74
+                            deaths</li>
+                        <li>Maternal death rate<sup id="cite_ref-9"><a href="#cite_ref-9">[9]</a></sup> → Reported to be
+                            between 0 and 1.8%, hence as lower bound none assumed.</li>
+                        <li>Maternal death rate 0.0056%<sup id="cite_ref-11"><a href="#cite_ref-11">[11]</a></sup> would
+                            result in <1 death, hence can be emitted.</li>
+                        <li>Total QALY → 5180</li>
+
+                    </ul>
+                </li>
+                <p>For the statistics on perinatal and maternal death rate for abruptio placentae, the best and most
+                    robust study was done
+                    in Finland, which while not in the UK has a very good and developed healthcare system like the UK
+                    and actually has a
+                    lower infant mortality rate than the UK, hence should even be an underestimate of the death rates.
+                </p>
+                <li>Hematologic issues
+                    <ul class="dashed-list">
+                        <li>These are blood related issues that are one of the most common complications that result
+                            from pre-eclampsia (2.65%)<sup id="cite_ref-8"><a href="#cite_ref-8">[8]</a></sup>,
+                            but since most are non-fatal especially in countries with developed healthcare systems such
+                            as the UK we will ignore
+                            these, which will just result in a further underestimate of our cost effectiveness.</li>
+
+                    </ul>
+                </li>
+            </ol>
+            <h2>Examining the outgoing costs:</h2>
+            <p>Text cost breakdown:</p>
+            <table>
+                <tr>
+                    <th colspan="1" rowspan="1">
+                        Part
+                        </td>
+                    <th colspan="1" rowspan="1">
+                        <p>Cost (£)</p>
+                        </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>LCD</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>5</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Arduino microcontroller</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>6</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Thermometer</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>3.20</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Wire</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>2</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Electromagnet</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>5</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Light sensor</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>3</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Magnetic beads</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>7</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="1" rowspan="1">
+                        <p>Total</p>
+                        </td>
+                    <th colspan="1" rowspan="1">
+                        <p>£31.20</p>
+                        </td>
+                </tr>
+            </table>
+            <ol>
+                <li>The test should be reusable multiple times, so we will use 5 times as a conservative estimate,
+                    thought it could be a lot
+                    more.
+                    \[Cost \ of \ testing = £31.20 * \frac {712000}{5} → 4.44 million\]</li>
+                <li>Cost of treatment → Since the methods of treatment are very inexpensive especially for a large
+                    healthcare system, we
+                    will assume that the cost reduction is mass producing the test will cover the cost of treatment.
+                </li>
+            </ol>
+            <h3>Cost effectiveness:</h3>
+            <p>\[\frac{4.44million}{6860} = £648 \ per \ QALY\]</p>
+            <p>Any treatment under £20,000 is deemed as cost effective by the UK’s national medical body<sup
+                    id="cite_ref-12"><a href="#cite_ref-12">[12]</a></sup>, therefore even in the lowest
+                bounds for everything and underestimating the cost effectiveness it is still well below the threshold.
+                If the test only
+                identified 3.5% of people or the treatment only helped 2% of those identified with the disease the cost
+                per QALY would
+                still be only be just under £20,000, which highlights the cost effectiveness further.</p>
+            <h3>Improvements that could be made</h3>
+            <ul class="dashed-list">
+                <li>Going though more of the complications and finding the death rates of those.</li>
+                <li>Going through the non-fatal conditions and trying to come up with ways to quantify the QALYs lost
+                    from those.</li>
+                <li>Testing our kit and figuring out more exact values for the false positives and negatives.</li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="footnotes">
+        <h2>Refrences</h2>
+        <ol class="refrences">
+            <li id="cite_note-1">Imperial College (2020) Introduction to Mathematical Modelling in Synthetic
+                Biology
+                Version 1 [Online] Available at:
+                <a
+                    href="https://2020.igem.org/wiki/images/9/96/T--Imperial_College--introtomodelling.pdf">https://2020.igem.org/wiki/images/9/96/T--Imperial_College--introtomodelling.pdf</a>
+                [Accessed October
+                2021]
+            </li>
+            <li id="cite_note-2">Daniel Briskin, Peter Y. Wang, David P. Bartel. (2020). The biochemical basis for the
+                cooperative action of microRNAs
+                [Online]. Available at: <a
+                    href="https://www.pnas.org/content/117/30/17764">https://www.pnas.org/content/117/30/17764</a>
+                [Accessed 19 October 2021].
+            </li>
+            <li id="cite_note-3">Morozova, N., Zinovyev, A., Nonne, N., Pritchard, L. L., Gorban, A. N., & Harel-Bellan,
+                A. (2012). Kinetic signatures of
+                microRNA modes of action. RNA (New York, N.Y.), 18(9), 1635–1655. Available at: <a
+                    href="https://doi.org/10.1261/rna.032284.112">https://doi.org/10.1261/rna.032284.112</a>
+                [Accessed October 2021]
+            </li>
+            <li id="cite_note-4">Daniel Briskin, Peter Y. Wang, David P. Bartel. (2020). The biochemical basis for the
+                cooperative action of microRNAs
+                [Online]. Available at: <a
+                    href="https://www.pnas.org/content/117/30/17764">https://www.pnas.org/content/117/30/17764</a>
+                [Accessed 19 October 2021].
+            </li>
+            <li id="cite_note-5">D. Clark. 2021. Number of live births in the United Kingdom from 1887 to 2019. [Online]
+                Available at: <a
+                    href="https://www.statista.com/statistics/281981/live-births-in-the-united-kingdom-uk/">https://www.statista.com/statistics/281981/live-births-in-the-united-kingdom-uk/</a>
+                [Accessed
+                October 2021]</a>
+            </li>
+            <li id="cite_note-6">nhs.uk, 2018. Overview of Pre-eclampsia. [Online] Available at: <a
+                    href="https://www.nhs.uk/conditions/pre-eclampsia/">https://www.nhs.uk/conditions/pre-eclampsia/</a>.
+                [Accessed
+                October 2021]
+            </li>
+            <li id="cite_note-7">von Dadelszen, P., & Magee, L. A. (2016). Preventing deaths due to the hypertensive
+                disorders of pregnancy. [Online] <i>Best
+                    practice & research. Clinical obstetrics & gynaecology,</i> 36, 83–102. Available at: <a
+                    href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5096310/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5096310/</a>
+                [Accessed
+                October 2021]
+            </li>
+            <li id="cite_note-8">Sohinee B., Doris M. C.. (2009). The Incidence of Severe Complications of Preeclampsia
+                . [Online] <i>Pages 181-190</i> Available at: <a
+                    href="https://www.tandfonline.com/doi/full/10.1081/PRG-200059873">https://www.tandfonline.com/doi/full/10.1081/PRG-200059873</a>
+                [Accessed
+                October 2021]
+            </li>
+            <li id="cite_note-9">Michael G Ross. (2019). Eclampsia [Online] Available at: <a
+                    href="https://emedicine.medscape.com/article/253960-overview#a20">https://emedicine.medscape.com/article/253960-overview#a20</a>
+                [Accessed
+                October 2021]
+            </li>
+            <li id="cite_note-10">Outi Riihimäki, Marjo Metsäranta, Jorma Paavonen, Tiina Luukkaala, Mika Gissler, Sture
+                Andersson, Mika Nuutila, Minna
+                Tikkanen. (2018). Placental Abruption and Child Mortality. [Online] <i>Pediatrics Aug 2018, 142 (2)
+                    e20173915.</i> Available at: <a
+                    href="https://pediatrics.aappublications.org/content/142/2/e20173915">https://pediatrics.aappublications.org/content/142/2/e20173915</a>
+                [Accessed
+                October 2021]
+            </li>
+            <li id="cite_note-11">Minna T., Mika G. et al. (2009). Maternal deaths in Finland: Focus on placental
+                abruption. [Online] <i>Acta Obstetricia et Gynecologica. 2009; 88: 11241127</i> Available at: <a
+                    href="https://obgyn.onlinelibrary.wiley.com/doi/pdf/10.1080/00016340903214940">https://obgyn.onlinelibrary.wiley.com/doi/pdf/10.1080/00016340903214940
+                </a> [Accessed
+                October 2021]
+            </li>
+            <li id="cite_note-12">National Institute for Health and Care Excellence. (2012). Methods for the development
+                of NICE
+                public health guidance (third edition). [Online] Available at: <a
+                    href="https://www.nice.org.uk/process/pmg4/resources/methods-for-the-development-of-nice-public-health-guidance-third-edition-pdf-2007967445701">https://www.nice.org.uk/process/pmg4/resources/methods-for-the-development-of-nice-public-health-guidance-third-edition-pdf-2007967445701
+                </a> [Accessed
+                October 2021]
+            </li>
+
+        </ol>
+    </div>
+</body>

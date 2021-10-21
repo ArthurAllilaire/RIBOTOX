@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection</title>
+    <!-- For mathtext -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./../../style.css">
+
+</head>
+
+<body>
+    <div class="intro-content hardware-cont">
+        <div class="intro-text">
+            <h2 style="color: white;" id="Detection">Detection:</h2>
+            <p>Our hardware utilises a luciferase assay to determine the result of our test. Luciferase is an enzyme
+                produced by
+                fireflies and other bioluminescent organisms. It produces light by acting on luciferin, a relatively
+                simple compound.
+                When luciferase acts on luciferin, it combines oxygen with luciferin, to produce oxyluciferin in an
+                excited state. When
+                the single excited electron in the oxyluciferin molecule returns to its ground state, it releases a
+                photon of light of
+                wavelength of approximately 550-570nm.</p>
+            <!-- Animation here -->
+            <video src="https://2021.igem.org/wiki/images/7/78/T--City_of_London_UK--Hardware_animation.mp4"
+                class="massive-diagram" autoplay controls></video>
+            <ol>
+                <li>Luciferase binds to luciferin adding oxygen to molecule</li>
+                <li>“Excited electron” moves to higher energy state</li>
+                <li>Electron moves back to low energy state</li>
+                <li>Yellow-green photon released</li>
+            </ol>
+            <p>The CDS of our toehold switches codes for luciferase, so when they are activated by the target miRNAs,
+                luciferase is
+                produced, which acts on the luciferin present in the solution, releasing light. We detect this released
+                light using the
+                arduino-based luminometer we designed. Our amplification technique, RPA, amplifies the miRNA linearly so
+                the light
+                released is approximately proportional to the concentration of miRNA of the blood, and the output of the
+                LDR used in the
+                luminometer is proportional to the irradiance. We use this to program a model that calculates the
+                concentration of miRNA
+                present in the blood sample and return a positive or negative result for pre-eclampsia by testing it
+                against threshold
+                values.</p>
+            <div id="main-luminometer-photo">
+                <div id="luminometer">
+                    <img src="https://2021.igem.org/wiki/images/d/d0/T--City_of_London_UK--Hardware_Luminometer.jpeg"
+                        alt="Photo of luminometer">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

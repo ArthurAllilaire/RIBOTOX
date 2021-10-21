@@ -67,14 +67,14 @@ body {
 // With scss we can be very specific, based on only the class of the container we can change the underlying css
 .loader-wrapper {
 	opacity: 1;
-	transition: opacity 3s;
+	transition: opacity 3s !important;
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
 	background-color: white;
-	z-index: 2;
+	z-index: 3;
 	// display: flex;
 	// justify-content: center;
 	// align-items: center;
@@ -109,7 +109,7 @@ body {
 .top-left-exit {
 	position: fixed !important;
 	top: 10px !important;
-	left: 4px !important;
+	left: 8px !important;
 	height: 50px !important;
 	width: auto !important;
 	margin: 0px !important;
@@ -117,8 +117,8 @@ body {
 	// transform: rotate(360deg);
 }
 .into-middle {
-	background-position-x: -50vw !important;
-	transition: all 2s ease-out;
+	background-position-x: -1250px !important;
+	transition: all 3s cubic-bezier(0, 0, 0.01, 1);
 }
 .nav-placeholder {
 	height: 70px;
@@ -283,36 +283,81 @@ header {
 				}
 			}
 		}
-		.mobile-links {
-			// Positioning it top right
-			position: fixed;
-			top: 0px;
-			left: 0px;
-			// Spacing
-			padding: 0px;
-			padding-top: 60px; // Height of header
-			margin: 0;
-			width: 100%;
-			height: 100%;
-			// Centering
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			//Styling
-			background-color: lightpink;
+	}
+}
+.mobile-links {
+	// Positioning it top right
+	position: relative;
+	overflow-y: scroll;
+	top: 0px;
+	left: 0px;
+	// Spacing
+	padding: 0px;
+	padding-top: 50px; // Height of header
+	margin: 0;
+	width: 100%;
+	height: auto;
+	// Centering
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	//Styling
+	background-color: $C122;
+	list-style: none;
+	.nav {
+		margin: 0;
+		width: 100%;
+	}
+	//Dropdown styling
+	.dropdown {
+		padding-bottom: 15px;
+		list-style: none;
+		width: 70%;
+		margin: 0 auto;
+		a {
+			padding-bottom: 20px;
+			display: block;
+			font-size: 1.2em;
+			font-style: underline;
+			font-weight: bold;
+			color: $C211;
+			text-decoration: none;
+			font-size: large;
+		}
+		.dropdown-content {
+			position: relative;
+			background-color: white;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			z-index: 1;
 			list-style: none;
-			li {
-				padding-bottom: 20px;
-			}
+			padding-inline-start: 0px;
+			border-radius: 10px;
+			left: -20px;
+			padding: 15px;
 			a {
+				padding: 12px 16px;
 				text-decoration: none;
-				color: white;
-				font-size: large;
+				display: block;
+				color: $C223;
+				border-radius: 5px;
+				width: 100%;
+				text-align: center;
+			}
+			a:hover {
+				color: $C111;
+				background-color: $C121;
+			}
+			li {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				// padding-bottom: 10px;
 			}
 		}
 	}
 }
-
 .intro-content {
 	h1 {
 		color: white !important;
@@ -321,24 +366,28 @@ header {
 	height: auto;
 	// The backround size needs to be static, it can change but then the background position also has to change.
 	background-size: 2500px 2500px;
-	background-image: url(assets/wave1-compressed.png), url(assets/wave2.png);
+	background-image: url(https://2021.igem.org/wiki/images/8/87/T--City_of_London_UK--Wave1.png),
+		url(https://2021.igem.org/wiki/images/6/60/T--City_of_London_UK--Wave2.png);
 	background-repeat: no-repeat;
 	// Under 750 width and need more crests so decrease the width
-	@media screen and (max-width: 740px) {
-		background-size: 2000px 2500px !important;
-		background-position-y: -900px, -800px;
-	}
 	// Above 2000px doesn't fully cover
 	@media screen and (min-width: 1000px) {
 		background-size: auto;
 		background-position-y: -1250px, -1200px;
 	}
 	// Default position is off the page, one on each side
-	background-position-x: -10vw, -90vw;
+	background-position-x: -0px, -2500px;
 	background-position-y: -780px;
 
+	@media screen and (max-width: 740px) {
+		background-size: 2000px 2500px !important;
+		background-position-y: -800px, -800px;
+	}
+	@media screen and (max-width: 1000px) {
+		background-position-x: -0px, calc(-2000px + 100vw);
+	}
 	// animation: gradient 2s ease;
-	animation: gradient 15s infinite;
+	// animation: gradient 15s infinite;
 
 	.intro-text {
 		display: flex;

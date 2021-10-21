@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminometer</title>
+    <!-- For mathtext -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./../../style.css">
+
+</head>
+
+<body>
+    <div class="no-waves-content-cont hardware-cont luminometer-cont">
+        <h1>Luminometer</h1>
+        <p>Drawing inspiration from team BATMAN in 2017, we designed and assembled a luminometer to quantify the
+            irradiance of
+            light emitted from the chemical test, and hence the concentration of the target miRNA present in the
+            patient’s blood.
+            One of the main reasons behind designing our own luminometer was the fact that standard luminometers cost
+            hundreds if
+            not thousands of pounds. Requiring this piece of equipment would limit this test to more developed countries
+            with much
+            more well-endowed clinics, which was completely against our core ideas of accessibility to everyone.</p>
+        <p>The main component was the TSL327 light-to-frequency converter, which combined a silicon photodiode with a
+            current-to-frequency converter. The output frequency is directly proportional to the intensity of the light
+            (irradiance)
+            emitted and hence the concentration of target miRNA.</p>
+        <figure class="titled-img">
+            <figcaption>TSL327 diagram</figcaption>
+            <div id="TSL-cont">
+                <img src="https://2021.igem.org/wiki/images/thumb/4/48/T--City_of_London_UK--Haotong_TSL327.png/800px-T--City_of_London_UK--Haotong_TSL327.png"
+                    alt="Placeholder image">
+            </div>
+        </figure>
+        <figure class="titled-img">
+            <figcaption>Photodiode Spectral Responsivity</figcaption>
+            <div class="graph-cont">
+                <img src="https://2021.igem.org/wiki/images/thumb/a/ac/T--City_of_London_UK--Hardware_Photodiode_graph.png/624px-T--City_of_London_UK--Hardware_Photodiode_graph.png"
+                    alt="Placeholder image">
+            </div>
+            <figcaption>The wavelength of the photons emitted by the Luciferin molecules is 550-570nm, which lies near
+                the most sensitive region
+                of the photodiode, as visible by the above graph.</figcaption>
+        </figure>
+
+        <figure class="titled-img">
+            <figcaption>Photodiode Spectral Responsivity</figcaption>
+            <div class="graph-cont">
+                <img src="https://2021.igem.org/wiki/images/thumb/7/7c/T--City_of_London_UK--Hardware_Output_Frequency_Irradiance.png/629px-T--City_of_London_UK--Hardware_Output_Frequency_Irradiance.png"
+                    alt="Placeholder image">
+            </div>
+            <figcaption>The wavelength of the photons emitted by the Luciferin molecules is 550-570nm, which lies near
+                the most
+                sensitive region
+                of the photodiode, as visible by the above graph.</figcaption>
+        </figure>
+        <figure class="titled-img">
+            <figcaption>Circuit diagram of luminometer</figcaption>
+            <div class="graph-cont">
+                <img src="https://2021.igem.org/wiki/images/thumb/b/be/T--City_of_London_UK--Hardware_Luminometer_circuit_diagram.png/800px-T--City_of_London_UK--Hardware_Luminometer_circuit_diagram.png"
+                    alt="Placeholder image">
+            </div>
+        </figure>
+    </div>
+</body>
+
+</html>

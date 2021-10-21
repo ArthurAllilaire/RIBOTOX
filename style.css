@@ -52,15 +52,15 @@ body a:visited {
 
 .loader-wrapper {
   opacity: 1;
-  -webkit-transition: opacity 3s;
-  transition: opacity 3s;
+  -webkit-transition: opacity 3s !important;
+  transition: opacity 3s !important;
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   background-color: white;
-  z-index: 2;
+  z-index: 3;
 }
 
 .loader-wrapper #loading-video {
@@ -91,7 +91,7 @@ body a:visited {
 .top-left-exit {
   position: fixed !important;
   top: 10px !important;
-  left: 4px !important;
+  left: 8px !important;
   height: 50px !important;
   width: auto !important;
   margin: 0px !important;
@@ -100,9 +100,9 @@ body a:visited {
 }
 
 .into-middle {
-  background-position-x: -50vw !important;
-  -webkit-transition: all 2s ease-out;
-  transition: all 2s ease-out;
+  background-position-x: -1250px !important;
+  -webkit-transition: all 3s cubic-bezier(0, 0, 0.01, 1);
+  transition: all 3s cubic-bezier(0, 0, 0.01, 1);
 }
 
 .nav-placeholder {
@@ -305,15 +305,16 @@ header .links-cont {
   }
 }
 
-header .links-cont .mobile-links {
-  position: fixed;
+.mobile-links {
+  position: relative;
+  overflow-y: scroll;
   top: 0px;
   left: 0px;
   padding: 0px;
-  padding-top: 60px;
+  padding-top: 50px;
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -324,47 +325,107 @@ header .links-cont .mobile-links {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: lightpink;
+  background-color: #f280a8;
   list-style: none;
 }
 
-header .links-cont .mobile-links li {
-  padding-bottom: 20px;
+.mobile-links .nav {
+  margin: 0;
+  width: 100%;
 }
 
-header .links-cont .mobile-links a {
+.mobile-links .dropdown {
+  padding-bottom: 15px;
+  list-style: none;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.mobile-links .dropdown a {
+  padding-bottom: 20px;
+  display: block;
+  font-size: 1.2em;
+  font-style: underline;
+  font-weight: bold;
+  color: #30307e;
   text-decoration: none;
-  color: white;
   font-size: large;
+}
+
+.mobile-links .dropdown .dropdown-content {
+  position: relative;
+  background-color: white;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  list-style: none;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+  border-radius: 10px;
+  left: -20px;
+  padding: 15px;
+}
+
+.mobile-links .dropdown .dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: #757394;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.mobile-links .dropdown .dropdown-content a:hover {
+  color: #d03757;
+  background-color: #f3c6e6;
+}
+
+.mobile-links .dropdown .dropdown-content li {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .intro-content {
   width: 100%;
   height: auto;
   background-size: 2500px 2500px;
-  background-image: url(assets/wave1-compressed.png), url(assets/wave2.png);
+  background-image: url(https://2021.igem.org/wiki/images/8/87/T--City_of_London_UK--Wave1.png), url(https://2021.igem.org/wiki/images/6/60/T--City_of_London_UK--Wave2.png);
   background-repeat: no-repeat;
-  background-position-x: -10vw, -90vw;
+  background-position-x: -0px, -2500px;
   background-position-y: -780px;
-  -webkit-animation: gradient 15s infinite;
-          animation: gradient 15s infinite;
 }
 
 .intro-content h1 {
   color: white !important;
 }
 
-@media screen and (max-width: 740px) {
-  .intro-content {
-    background-size: 2000px 2500px !important;
-    background-position-y: -900px, -800px;
-  }
-}
-
 @media screen and (min-width: 1000px) {
   .intro-content {
     background-size: auto;
     background-position-y: -1250px, -1200px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .intro-content {
+    background-size: 2000px 2500px !important;
+    background-position-y: -800px, -800px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .intro-content {
+    background-position-x: 0px, calc(-2000px + 100vw);
   }
 }
 

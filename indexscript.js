@@ -7,15 +7,20 @@ document.addEventListener('DOMContentLoaded',function(){
     }, 2000)
     setTimeout(function(){
         // Bring in the waves
-        document.querySelector('.content').classList.add('into-middle');
+        document.querySelector('.intro-content').classList.add('into-middle');
     }, 2000)
     // Set the video to autoplay only once the transition is over
     setTimeout(function(){
         const video = document.querySelector('#logo-video').play();
         // Remove the loading div completely
+        // document.querySelector('.loader-wrapper').style.display = "none";
+        
+    }, 2800)
+    setTimeout(function(){
+        // Remove the loading div completely
         document.querySelector('.loader-wrapper').style.display = "none";
         
-    }, 1000)
+    }, 3000)
    
     document.querySelector('.menu-toggle').addEventListener('click', toggleMenu)
     makeLinkActive();
@@ -39,17 +44,37 @@ function toggleMenu(event){
         target = target.parentNode
     }
     // Get the ul of links
-    links = target.parentNode.childNodes[3]
+    links = document.querySelector('#mobile-nav-cont')
+    console.log(target, links)
     if (target.classList.contains("open")){
+        // change the menu toggle
         target.classList.remove('open');
         //change display of menu
-        links.classList.remove('mobile-links');
-        links.classList.add('links');
+        links.style.display = "none";
+        // Remove the controls from the HTML5 video controls
+        document.querySelectorAll('video').forEach(function(video, key){
+                if(key >= 2){
+                    if (video.hasAttribute("controls")) {
+                        video.removeAttribute("controls")   
+                    } else {
+                        video.setAttribute("controls","controls")   
+                    }
+                }
+            })
     } else{
         target.classList.add('open');
         // Change display of menu
-        links.classList.add('mobile-links');
-        links.classList.remove('links');
+        links.style.display = "flex";
+        // Add the controls for HTML5 videos
+            document.querySelectorAll('video').forEach(function(video, key){
+                if(key >= 2){
+                    if (video.hasAttribute("controls")) {
+                        video.removeAttribute("controls")   
+                    } else {
+                        video.setAttribute("controls","controls")   
+                    }
+                }
+            })
     }
 };
 
