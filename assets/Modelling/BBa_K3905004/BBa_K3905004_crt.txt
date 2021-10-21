@@ -1,0 +1,27 @@
+Oct 3 2021 at 02:39:29
+
+THS: AGACAGUGCUUCCAUCUAGAGGGGAUUUACAAAAAGAGGAGAGUAAAAUGCCUCUAGAUAGAGAAAUAACCGCUAGGGGAAG
+THS concentration: 1e-07
+RBS: AGAGGAGA
+No. trigger sets: 2656
+Constant RNAs: []
+Concentrations of constant RNAs: []
+Max. complex size: 3
+Sample number: 100
+Target sequence: CCUCUAGAUGGAAGCACUGUCU
+Target name: hsa-miR-517-5p
+
++-----------------+-----------------+-------------------------+--------------------+--------------------+-------------------+--------------------+
+| Temperature /°C | Target name     | Target sequence         | Activation %       | Specificity %      | Activation SE     | Specificity SE     |
++-----------------+-----------------+-------------------------+--------------------+--------------------+-------------------+--------------------+
+| 0               | hsa-miR-517-5p  | CCUCUAGAUGGAAGCACUGUCU  | 54.999984674637936 | 32.310364408495765 | 4.974936429211996 | 14.90992305340928  |
+| 10              | hsa-miR-517-5p  | CCUCUAGAUGGAAGCACUGUCU  | 72.99997849739046  | 9.588160318533301  | 4.439593777408845 | 11.740073422201098 |
+| 20              | hsa-miR-518c-5p | UCUCUGGAGGGAAGCACUUUCUG | 67.99997163348563  | 0                  | 4.66476051343634  | 0                  |
+| 30              | hsa-miR-517-5p  | CCUCUAGAUGGAAGCACUGUCU  | 73.99993412950265  | 12.212726622919245 | 4.386340478554045 | 11.311743362343446 |
+| 40              | hsa-miR-517-5p  | CCUCUAGAUGGAAGCACUGUCU  | 63.99983425131055  | 16.035753691032394 | 4.799993907560515 | 13.151055669174633 |
+| 50              | hsa-miR-517-5p  | CCUCUAGAUGGAAGCACUGUCU  | 60.99951776451077  | 27.78800441258127  | 4.877480078996806 | 13.477771089058848 |
+| 60              | hsa-miR-517-5p  | CCUCUAGAUGGAAGCACUGUCU  | 66.99707834192506  | 43.27117778162335  | 4.702024899278995 | 10.6708903189567   |
+| 70              | hsa-miR-517-5p  | CCUCUAGAUGGAAGCACUGUCU  | 37.96996994638213  | 49.548888310627284 | 4.851949584660596 | 16.002110263117252 |
+| 80              | hsa-miR-517-5p  | CCUCUAGAUGGAAGCACUGUCU  | 30.21157332314494  | 26.146680297850477 | 4.565627207453085 | 24.11878496077562  |
+| 90              | hsa-miR-517-5p  | CCUCUAGAUGGAAGCACUGUCU  | 29.385191299922457 | 21.893660141648517 | 4.134613246975219 | 24.37637397135009  |
++-----------------+-----------------+-------------------------+--------------------+--------------------+-------------------+--------------------+

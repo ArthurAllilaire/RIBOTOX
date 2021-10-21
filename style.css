@@ -566,6 +566,107 @@ header .links-cont .mobile-links a {
   border-radius: 10px;
 }
 
+.luminometer-cont #TSL-cont {
+  width: 800px;
+  overflow: hidden;
+  margin: 0px;
+}
+
+.luminometer-cont #TSL-cont img {
+  display: block;
+  width: 100%;
+  margin: -25% 0;
+}
+
+.luminometer-cont .graph-cont {
+  width: 600px;
+  overflow: hidden;
+  margin: 0px;
+}
+
+.luminometer-cont .graph-cont img {
+  display: block;
+  width: 100%;
+}
+
+.luminometer-cont .titled-img {
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.luminometer-cont .titled-img figcaption {
+  width: 600px;
+  text-align: center;
+}
+
+.model-cont .intro-content a {
+  color: white;
+}
+
+.model-cont .intro-content h5,
+.model-cont .intro-content h2,
+.model-cont .intro-content h3 {
+  color: white;
+}
+
+.model-cont .blue-heading {
+  color: #30307e !important;
+}
+
+.model-cont ol {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.model-cont .lettered-list {
+  list-style-type: lower-latin;
+}
+
+.model-cont .dashed-list {
+  list-style-type: circle;
+}
+
+.model-cont table .padded {
+  padding: 10px;
+}
+
+.model-cont table .not-bold {
+  font-weight: normal;
+}
+
+.model-cont .mathjax-li {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-padding-start: 20px;
+          padding-inline-start: 20px;
+}
+
+.model-cont .centered {
+  text-align: center;
+}
+
+.model-cont .diagram-with-p img {
+  margin-right: 0px;
+  margin-bottom: 25px;
+}
+
+.model-cont .main-content-cont {
+  -webkit-box-shadow: 0px 12px 30px -35px #30307e;
+          box-shadow: 0px 12px 30px -35px #30307e;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
 .diagram-with-p {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -584,6 +685,10 @@ header .links-cont .mobile-links a {
   -webkit-box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
           box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);
   border-radius: 5px;
+}
+
+figcaption {
+  color: #0c1f4a;
 }
 
 #img-under {
