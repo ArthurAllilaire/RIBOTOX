@@ -863,6 +863,44 @@ table th {
   padding: 10px;
 }
 
+.HP-cont .wave-photos {
+  background-color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 250px;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  color: #0c1f4a;
+}
+
+.HP-cont .wave-photos img {
+  width: 60vw;
+  min-width: 250px;
+}
+.HP-cont .profile-photos img {
+  width: 60vw;
+  min-width: 250px;
+  max-width: 500px;
+}
+
+.HP-cont .intro-text {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1900px, rgba(0, 0, 0, 0)), color-stop(1900px, rgb(255 81 118)));
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 1900px, rgb(255 81 118) 1900px);
+}
+.HP-cont h2{
+    color: white;
+}
+#double-people {
+		display: flex;
+		flex-direction: row;
+    flex-grow: 1;
+}
+
+
 .massive-diagram {
   width: 100%;
   max-width: 800px;

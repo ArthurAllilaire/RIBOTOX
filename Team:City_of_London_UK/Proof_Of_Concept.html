@@ -1,0 +1,317 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering</title>
+    <!-- For mathtext -->
+    <script style="padding-bottom: 0px;" src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async style="padding-bottom: 0px;"
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./../../style.css">
+    <style>
+        .HP-cont .wave-photos {
+            background-color: white;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+            min-width: 250px;
+            margin: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #0c1f4a;
+        }
+
+        .HP-cont .wave-photos img {
+            width: 60vw;
+            min-width: 250px;
+        }
+
+        .HP-cont .intro-text {
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1900px, rgba(0, 0, 0, 0)), color-stop(1900px, rgb(255 81 118)));
+            background-image: linear-gradient(rgba(0, 0, 0, 0) 1900px, rgb(255 81 118) 1900px);
+        }
+
+        .HP-cont h2 {
+            color: white;
+        }
+
+        #double-people {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="intro-content HP-cont">
+        <div class="intro-text">
+            <h1 class="main-header">Proof of Concept</h1>
+            <p>After designing all of our switches, the engineering process of which is detailed in our engineering
+                page, and the
+                design details are outlined in our design page, we were keen to get into the lab to test our single
+                trigger (gen2)
+                switches, and double trigger (gen3) switch, as well as our isothermal amplification method, to show
+                these work well with
+                our switches. If the concept was proved to work, we would, as outlined in our implementation page,
+                research other miRNAs
+                in our own studies to create switches with even more triggers, to create a kit to detect preeclampsia
+                using a cocktail
+                of miRNA triggers.</p>
+        </div>
+    </div>
+    <div class="main-content-cont">
+        <div class="main-content">
+            <h2>Goals</h2>
+            <h3>Gen2 Toehold Switches</h3>
+            <p>The aim for characterising the gen2 toehold switches was to show they could discriminate between
+                concentrations of miRNA
+                4-fold higher, which was based on the data we gathered from research studies. This is outlined further
+                in the biomarkers
+                section of the design page and discriminate between similar miRNAs, or ‘homologs’, that were identified
+                using our
+                software tool, ‘ToeholdTools’. More information on the software tool can be found in our software page.
+            </p>
+            <h3>Gen3 Toehold Switches</h3>
+            <p>The aim for characterising the gen3 ‘AND-gate’ toehold switch was to show it would discriminate between -
+                both trigger
+                miRNAs being 4-fold higher in concentration, one trigger being 4-fold higher in concentration, and
+                neither trigger being
+                4-fold higher in concentration.</p>
+            <h3>miRPA</h3>
+            <p>The goal of characterising miRPA was to show: it could discriminate between similar homologs, identified
+                by
+                ToeholdTools, and it would increase the concentration of our miRNAs, such that they could be detected by
+                our toehold
+                switch even at low concentrations.</p>
+
+            <h2>Experimentation</h2>
+            <p>In order to fulfill the goals of the toehold switches and miRPA, we had to conduct characterisation
+                experiments.</p>
+            <h2>Gen2 Toehold Switches</h2>
+            <h3>Method</h3>
+            <p>We ordered our switches and luciferase as linear DNA with 250 random base pairs before and after the
+                prefix and suffix
+                respectively on the advice of our TXTL kit supplier. We first suspended our gBlocks, consisting of a T7
+                promoter,
+                upstream of the switch (containing an RBS), upstream of a firefly luciferase CDS, to reach an overall
+                concentration of
+                6.7nM in TE buffer.</p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img style="padding-bottom: 0px;"
+                    src="https://2021.igem.org/wiki/images/b/b6/T--City_of_London_UK--MeasureTables.txt"
+                    alt="ToeHold Switch">
+            </figure>
+            <p>For each gen2 switch, we tested, at a constant DNA concentration, the target miRNA (miR-517-5p or
+                miR-210-3p) at 9M and
+                2.25M to replicate the roughly 4-fold increase of expression levels in patients with preeclampsia 1 2,
+                as well as a
+                homolog for each miRNA (miR-518f-5p for miR-517-5p and miR-6867-5p for miR-210-3p), which were
+                determined to be the
+                miRNAs have the highest probability of activating the switches aside from the target miRNAs themselves
+                by our software
+                tool (see software page). We then incubated the DNA, miRNAs with a plasmid containing a gene coding for
+                T7 polymerase
+                (to promote transcription of our toehold switch mRNAs) as well as a TXTL cell-free master mix for 1
+                hour, and then
+                pipetted the contents of each tube into 8 wells of a 96 well plate, and took four measurements after
+                D-luciferin in a
+                buffer was injected, at different times. The luciferase assay kit told us to take a measurement
+                ‘immediately’ after
+                injection. But we found that taking the measurement a few seconds after injection caused no luminescence
+                to be detected,
+                so we took measurements at later times, to analyse how luminescence changed over time.</p>
+            <h3>Results</h3>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img style="padding-bottom: 0px;"
+                    src="https://2021.igem.org/wiki/images/thumb/8/8f/T--City_of_London_UK--Graph_3.png/1199px-T--City_of_London_UK--Graph_3.png"
+                    alt="Toehold Switch Luciferase characterisation">
+            </figure>
+            <p>The results show a brief, high peak in luminescence for a high concentration of miR-210-3p. This is
+                because, during the
+                incubation time, more luciferase is produced due to an increased rate of translation, so there is a
+                higher concentration
+                of luciferase, so more luciferase-luciferin complexes form at the beginning, converting luciferin to
+                oxyluciferin,
+                producing luminescence. The results show that, compared to the negative control, the homolog
+                ‘miR-518f-5p’ activates the
+                switch more, causing an higher peak, sooner on, and there is only a small increase in luminescence
+                between the control
+                and the target RNA at reduced concentration.</p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img style="padding-bottom: 0px;"
+                    src="https://2021.igem.org/wiki/images/thumb/8/8f/T--City_of_London_UK--Graph_3.png/1199px-T--City_of_London_UK--Graph_3.png"
+                    alt="Toehold Switch Luciferase characterisation">
+            </figure>
+            <p>The results for the miR-517-5p switch were very similar to that of the miR-210-3p switch. However, it
+                showed that the
+                difference in luciferase concentration after incubation was lower for the lower concentration of
+                miR-517-5p than that of
+                miR-210-3p. Furthermore, the homolog for this trigger miRNA, miR-518f-5p gave a higher concentration of
+                luciferase than
+                the homolog for miR-210-3p, suggesting that it induces translation better. This is what we would expect
+                given it’s
+                closer similarity.</p>
+            <p>Based on these sets of data, we decided that our kit should detect luminescence at some point between 100
+                and 200
+                seconds.</p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img style="padding-bottom: 0px;"
+                    src="https://2021.igem.org/wiki/images/thumb/b/b3/T--City_of_London_UK--Graph_4.png/1199px-T--City_of_London_UK--Graph_4.png"
+                    alt="Table">
+            </figure>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img style="padding-bottom: 0px;"
+                    src="https://2021.igem.org/wiki/images/thumb/2/21/T--City_of_London_UK--Graph_1.png/1200px-T--City_of_London_UK--Graph_1.png"
+                    alt="Table">
+            </figure>
+            <p>The graph on the left shows % increase in luminescence compared to the negative control (no miRNAs added)
+                for the
+                miR-210-3p gen2 switrch. This shows an 82% increase in expression for the target miRNA at 9M
+                concentration, which drops
+                to just 16% for a 2.25M concentration, showing how our toehold switch can clearly discriminate between
+                these percentage
+                differences in miRNA concentrations, and these concentrations are based on what we’d expect in patients
+                with and without
+                the condition at ten weeks 1. However, there is no data on actual concentrations of these miRNAs in the
+                serum and the
+                data we collected shows that if concentrations in the blood are lower than 2.25M, then an amplification
+                technique would
+                be necessary to discriminate between low concentrations of miRNA and leaky luciferase expression. The
+                diagram on the
+                right is similar to that of the miR-210-3p switch, and shows how the gen2 miR-517-5p toehold switch can
+                discriminate
+                clearly between miR-517-5p at 9M and 2.25M.</p>
+            <h3>Conclusion</h3>
+            <p>The gen2 toehold switches cause a noticeable increase in translation of luciferin with increased miRNA
+                concentration,
+                and, with software, they would be able to binarily discriminate between levels of miRNA at
+                concentrations indicative of
+                the condition, given they are above 2.25M in ‘normal’ patients. The results also confirmed that an
+                amplification
+                technique, such as miRPA, should be used in order to ensure the concentration is greater than 2.25M in
+                patients without
+                the condition.</p>
+            <h2>Gen3 Toehold Switches</h2>
+            <h3>Method</h3>
+            <p>We ordered our switch and luciferase as linear DNA with 250 random base pairs before and after the prefix
+                and suffix
+                respectively on the advice of our TXTL kit suplier, as well as a gBlock containing our anti-miRNA under
+                the control of a
+                T7 promoter. We first suspended our Toehold switch, consisting of a T7 promoter, upstream of the switch
+                (containing an
+                RBS), upstream of a firefly luciferase CDS, and anti-miRNA gblock to reach an overall concentration of
+                6.7nM in TE
+                buffer.</p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img style="padding-bottom: 0px;"
+                    src="https://2021.igem.org/wiki/images/e/e3/T--City_of_London_UK--MT2.txt" alt="Table">
+            </figure>
+            <p>We tested, at a constant DNA concentration, the target miRNAs (miR-517-5p and miR-210-3p) at 9M and 2.25M
+                combinations
+                to replicate the roughly 4-fold increase of expression levels in patients with preeclampsia 1 2. We then
+                incubated the
+                DNA for the switch and luciferase, the DNA for the antiRNA (aRNA) (See Design page), miRNAs with a
+                plasmid containing a
+                gene coding for T7 polymerase (to promote transcription of our toehold switch mRNAs) as well as a TXTL
+                cell-free master
+                mix for 1 hour, and then pipetted the contents of each tube into 8 wells of a 96 well plate, and took a
+                measurement
+                after 155s as this was in the region of high expression for high miRNA concentration samples observed in
+                the single
+                trigger switches.</p>
+            <h2>Results</h2>
+            <p>Having tested the single trigger switches, and thereby demonstrating how our concept of a toehold switch
+                works as
+                hypothesised, the main purpose of testing the AND-Gate Switch was to see whether it could discriminate
+                between a high
+                concentration of one miRNA, and a low concentration of another, and a high concentration of both. This
+                was in case a
+                patient had increased levels of one miRNA and not the other, which would not be indicative of
+                Preeclampsia.</p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img style="padding-bottom: 0px;"
+                    src="https://2021.igem.org/wiki/images/thumb/d/d1/T--City_of_London_UK--Graph_7.png/1200px-T--City_of_London_UK--Graph_7.png"
+                    alt="Table">
+            </figure>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img style="padding-bottom: 0px;"
+                    src="https://2021.igem.org/wiki/images/thumb/c/cb/T--City_of_London_UK--Graph_8.png/1200px-T--City_of_London_UK--Graph_8.png"
+                    alt="Table">
+            </figure>
+            <p>The graphs show how, compared to the negative control, which shows leaky expression of the toehold
+                switch, the
+                luminescence output of the sample with 9M concentration of both miRNA triggers is 92% higher.
+                Interestingly, the
+                percentage increase in luminescence of the miR-210-3p at 9M and miR-517-5p at 2.25M is twice more than
+                twice as high as
+                the miRNAs at flipped concentrations - 28% compared to 12%. This could be because the miR-210-3p binding
+                site is further
+                downstream than the miR-517-5p binding site, so miR-210-3p is able to bind and partially unfold the
+                switch in the
+                absence of miR-517-5p, increasing the rate of translation. However, as the miR-517-5p binding site is
+                further upstream,
+                it is completely bound up in hydrogen bonds, so it is not accessible to the miRNA unless it binds as the
+                switch is being
+                transcribed.</p>
+            <h3>Conclusion</h3>
+            <p>The gen3 toehold switch also causes a noticeable increase in translation when both miRNAs are at a high
+                concentration
+                (9M), compared to when one of both of them is at a low concentration (2.25M), which gives strong
+                evidence that our
+                AND-gate design works. This framework could therefore be scaled up to create more than 2 input sensing
+                switches.</p>
+            <h2>miRPA</h2>
+            <p>Based on results from our toehold switch characterisation, we decided to find an isothermal amplification
+                strategy. Read
+                more about it on our <a href="https://2021.igem.org/Team:City_of_London_UK/Design">Design page</a>.</p>
+            <p>We were supplied miRPA characterisation protocols by Dr O’Sullivan (see <a
+                    href="https://2021.igem.org/Team:City_of_London_UK/Human_Practices"> Human Practices page</a>) after
+                we told her about
+                our project. To show that miRPA can discriminate between our miRNAs and homologous miRNAs, we tested our
+                trigger miRNAs
+                with their respective closest homologs, as determined by our software tool.</p>
+            <p>In order to design probes for miRPA, we designed a python script using Nupack’s design functions in its
+                API to find
+                probes which would bind to the miRNAs, but have overhangs which didn’t bind within themselves, to ensure
+                primers could
+                easily anneal to them.</p>
+            <p>We ordered our probes and primers on IDT and then resuspended them in a TE buffer and added them to our
+                trigger and
+                homologous miRNAs, with DNA ligase to bind the probes together. We amplified the miRPA product with PCR.
+            </p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img style="padding-bottom: 0px;"
+                    src="https://2021.igem.org/wiki/images/f/f2/T--City_of_London_UK--GE.png" alt="picture">
+            </figure>
+            <p>We performed a gel electrophoresis on the PCR products. We did not have access to gel ladders which could
+                discriminate
+                between <100bp DNA strands, but our gel showed that the target miRNAs miR-210-3p and miR-517-5p were
+                    amplified more than the homologs. Furthermore, the fact that the homologs moved further through the
+                    gel suggested that the probes had not bound together, which would suggest they did not bind to the
+                    homologs.</p>
+                    <p>Using miRPA in our test would allow us to ensure there is an adequate miRNA concentration, and
+                        our characterisation of
+                        the technique showed it is specific to our miRNAs.</p>
+                    <h2>Achievements</h2>
+                    <p>We were able to design two generations of toehold switches which we proved to be able to
+                        discriminate between the ratio
+                        of concentrations typical of patients with and without preeclampsia, as well as similar, or
+                        ‘homologous’ miRNAs.</p>
+                    <p>We were able to design a method of amplification for our switch and proved it not only worked,
+                        but could also
+                        discriminate between homologous miRNAs.</p>
+                    <p>We successfully designed a luminometer and extraction method, such that the concept of our test
+                        as a whole is thought
+                        through from start to finish.</p>
+
+        </div>
+    </div>
+</body>
+
+</html>

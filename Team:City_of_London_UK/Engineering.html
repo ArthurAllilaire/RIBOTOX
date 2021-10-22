@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering</title>
+    <!-- For mathtext -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./../../style.css">
+
+</head>
+
+<body>
+    <div class="intro-content HP-cont">
+        <div class="intro-text">
+            <h1 class="main-header">Engineering</h1>
+            <p>In order to create a working test for Preeclampsia, we designed multiple generations of Toehold switches
+                and an
+                isothermal amplification strategy in addition to hardware including a luminometer, magnetic nanoparticle
+                extraction
+                strategy and reaction chamber. However, this section will focus on the engineering success of our
+                toehold switch and
+                amplification probe design.</p>
+            <p>While we had access to labs at some points during our project, this came late on in our project, so much
+                of our testing
+                was done in Silico. On this page, we will outline two design cycles, the first using in Silico testing
+                using our
+                software tool, and the second using wet lab characterisation.</p>
+        </div>
+    </div>
+    <div class="main-content-cont">
+        <div class="main-content">
+            <h2>The First Cycle</h2>
+            <p>Despite its name, this first cycle starts with our second generation (gen2) toehold switches, after we
+                tested our gen1
+                switches using Nupack and then, after talking to Dr Alex Green and Dr Bae Wooli, a researchers in the
+                field, we decided
+                to create simpler, more specific ‘gen2’ switches. You can read more about this in our <a
+                    href="https://2021.igem.org/Team:City_of_London_UK/Design">Design page</a>.</p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <figcaption>
+                    <h4>Goal</h4>
+                </figcaption>
+                <img src="https://2021.igem.org/wiki/images/thumb/1/10/T--City_of_London_UK--Main_MicroRNA_Biomarkers_graph.png/800px-T--City_of_London_UK--Main_MicroRNA_Biomarkers_graph.png"
+                    alt="Relative Expression of miRNAs">
+            </figure>
+            <p>Our research identified two miRNAs upregulated roughly 4-fold in patients with Preeclampsia at 10 weeks -
+                miR-210-3p and
+                miR-517-5p. So, the aim of the switches was to be able to discriminate between this percentage
+                difference in
+                concentration.</p>
+            <h2>Design</h2>
+            <img class="massive-diagram" style="padding-bottom: 0px;"
+                src="https://2021.igem.org/wiki/images/c/c6/T--City_of_London_UK--How_A_Toehold_Switch_Works.png"
+                alt="Diagram of how a toehold switch works">
+            <p>Our gen2 toehold switches work such that when few microRNAs are present, the ribosome binding site of an
+                mRNA coding for
+                luciferase is folded up, so the ribosome cannot unzip the long stem and move down the strand to the
+                start codon to
+                initiate translation.</p>
+            <p>However, when a microRNA binds to the trigger site, the switch unfolds, decreasing the length of the
+                stem, and exposing
+                the start codon, so translation of leuciferase - a reporter protein - can begin.</p>
+            <p>We used the software package NUPACK to help design our gen2 switches in-silico. NUPACK is able to predict
+                the
+                interactions of the secondary structure of one or more nucleic acid strands. And so, we used the
+                programme to model and
+                perfect our switches.</p>
+            <p>At first, we designed our switches base by base, checking the minimum free energy (MFE) structure, using
+                NUPACK, to
+                ensure that our switch had a strong hairpin structure in the ‘off’ state and was properly unfolded in
+                its ‘on’ state.</p>
+            <p>We were successful in designing multiple switches that had MFE structures fulfilling this criteria, but
+                multiple bases
+                had low probabilities of being in their respective positions.</p>
+            <p>Therefore, we used the NUPACK API to generate a Python program to test a randomly generated list of
+                one-hundred-thousand
+                linker regions (which did not contain any stop or start codons) and simulated a thousand probabilistic
+                secondary
+                structure samples for each, showing which switch had the highest probability of unfolding in the
+                presence of our miRNA
+                triggers, but not in their absence.</p>
+            <p>(To read more about specific design considerations, see the <a
+                    href="https://2021.igem.org/Team:City_of_London_UK/Design">Design page</a>).</p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <figcaption>
+                    <h4 style="margin-bottom: 5px;">The gen2 switch for miR-517-5p</h4>
+                </figcaption>
+                <img src="https://2021.igem.org/wiki/images/thumb/c/ce/T--City_of_London_UK--Toehold_Switch2.png/1200px-T--City_of_London_UK--Toehold_Switch2.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch">
+            </figure>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <h4 style="margin-bottom: 5px;">The gen2 switch for miR-210-3p</h4>
+                <img src="https://2021.igem.org/wiki/images/thumb/c/ce/T--City_of_London_UK--Toehold_Switch2.png/1200px-T--City_of_London_UK--Toehold_Switch2.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch">
+            </figure>
+            <h3>Build</h3>
+            <p>After this design, we ended up with two toehold switches (seen above) which we decided to characterise
+                using our
+                software tool, ToeholdTools. The building in this design cycle was for the software tool itself, rather
+                than the
+                switches, as we were testing them at first in Silico.</p>
+            <h3>Test</h3>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img src="https://2021.igem.org/wiki/images/4/42/T--City_of_London_UK--Modelling_210-2p_g2.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch" style="max-width: 800px; margin-bottom: 30px;">
+            </figure>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img src="https://2021.igem.org/wiki/images/thumb/a/ac/T--City_of_London_UK--Software_517-g1.png/800px-T--City_of_London_UK--Software_517-g1.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch" style="max-width: 800px; margin-bottom: 30px;">
+            </figure>
+            <p>The software tool utilises Nupack’s API to test to see if the switches will unfold, or ‘activate’ in the
+                presence of our
+                target miRNA, but not in the presence of other miRNAs in the human miRNA database (which we downloaded
+                from miRBase).
+                The ideal switch is one that has high activation for our target miRNAs but not for other miRNAs. We
+                found that both our
+                switches performed well in silico - with high activation and relatively high specificity for the
+                miR-210-3p switch, but
+                less specificity for the miR-517-5p.</p>
+            <h3>Learn</h3>
+            <p>Based on these results, we decided we should design a protocol to characterise these switches in the lab,
+                to see how
+                they would unfold, thereby inducing translation of a luciferase CDS, emitting luminescence when
+                luciferin is added, in
+                the presence of our target miRNAs at a concentration, and a quarter of that concentration (to mimic the
+                ratio in human
+                serum between those with and without the condition) as well as in the presence of similar miRNAs, or
+                ‘homologs’, that
+                our software tool had identified as being able to somewhat unfold our switch.</p>
+            <p>Furthermore, this made us realise that in order to create a specific test, it would be better to be able
+                to detect
+                multiple miRNAs with the same switch, such that even if another miRNA homolog was over-expressed in the
+                serum of a
+                patient without the condition, it wouldn’t give a positive test unless all target miRNAs are expressed.
+                To show a proof
+                of concept for this idea, we got to work designing a novel AND-gate switch. This fed into our next
+                design cycle.</p>
+            <h2>The Second Cycle</h2>
+            <h3>Design</h3>
+            <p>Our third generation (gen3) toehold switch uses AND-gate logic to detect the presence of our two target
+                miRNAs in one
+                switch.</p>
+            <p>This switch employs an anti-miRNA with three regions; two hybridization domains that are complementary to
+                each of our
+                trigger RNAs and the anti-miRNA’s own trigger site. This 29 nucleotide long strand has a 13 nucleotide
+                long binding site
+                for the miRNA 210-3p and an 11 nucleotide long binding site for miRNA 517-5p. This complex of the 3 RNA
+                strands is
+                necessary to bind to the toehold switch’s trigger binding site. We had to ensure that each of these
+                trigger binding
+                sites was >10 nucleotides on the advice of Dr Bae Wooli.</p>
+            <img class="massive-diagram"
+                style="margin-bottom: 20px; box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);"
+                src="https://2021.igem.org/wiki/images/thumb/0/03/T--City_of_London_UK--ComplexFormation.png/800px-T--City_of_London_UK--ComplexFormation.png"
+                alt="Diagram of how a toehold switch works">
+            <img class="massive-diagram"
+                style="padding-bottom: 0px; box-shadow: 0px 0px 10px 10px rgba(208, 55, 87, 0.1);"
+                src="https://2021.igem.org/wiki/images/thumb/e/e3/T--City_of_London_UK--AndGateTHS.png/800px-T--City_of_London_UK--AndGateTHS.png"
+                alt="Diagram of how a toehold switch works">
+            <p>For the AND gate, we were unable to use the NUPACK API as the minimum free energy structure would show
+                each strand
+                binding, independent of the position of the other strands. Therefore, we designed the anti-miRNA and the
+                toehold switch
+                base by base. To ensure that the switch would unfold, we had to ensure that the difference in MFE
+                structure between the
+                ‘off’ and ‘on’ state was such that unfolding was energetically favourable when the anti-miRNA-miRNA
+                complex had formed.
+                In order to help us achieve this energetically favourable state we replaced an adequate amount of C-G
+                bonds with U-G
+                bonds to raise the free energy of the MFE structure of the OFF state.</p>
+            <h3>Build</h3>
+            <p>We ordered four gBlocks from IDT. The first three contained each of our two gen2 switches and also our
+                gen3 switch. All
+                three were downstream of a T7 promoter and upstream of a luciferase coding region. The final gBlock was
+                for the
+                anti-miRNA for the gen3 switch, which was also under the control of a T7 promoter. All these were linear
+                DNA with 250
+                randomly generated base pairs upstream and downstream of the insert. This was on the advice of the
+                supplier of the TXTL
+                cell-free ktis we were using in our characterisation.</p>
+            <h3>Test</h3>
+            <p>To find out more about the performance of our gen2 switches, go to our <a
+                    href="https://2021.igem.org/Team:City_of_London_UK/Measurement">Measurement and Results page</a>.
+                But, as they are
+                not part of this design cycle, we don’t anaylse their results here.</p>
+            <p>The main purpose of testing the AND-Gate Switch was to see whether it could discriminate between a high
+                concentration of
+                one miRNA, and a low concentration of another, and a high concentration of both. This was in case a
+                patient had
+                increased levels of one miRNA and not the other, which would not be indicative of Preeclampsia. This
+                would also show
+                that our concept could potentially be scaled up, in order to create a framework for multiple miRNAs to
+                be tested for,
+                increasing the specificity of tests.</p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img src="https://2021.igem.org/wiki/images/thumb/c/cb/T--City_of_London_UK--Graph_8.png/800px-T--City_of_London_UK--Graph_8.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch">
+            </figure>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img src="https://2021.igem.org/wiki/images/thumb/d/d1/T--City_of_London_UK--Graph_7.png/800px-T--City_of_London_UK--Graph_7.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch">
+            </figure>
+            <p>The graphs show how, compared to the negative control, which shows leaky expression of the toehold
+                switch, the
+                luminescence output of the sample with 9M concentration of both miRNA triggers is 92% higher.
+                Interestingly, the
+                percentage increase in luminescence of the miR-210-3p at 9M and miR-517-5p at 2.25M is twice more than
+                twice as high as
+                the miRNAs at flipped concentrations - 28% compared to 12%. This could be because the miR-210-3p binding
+                site is further
+                downstream than the miR-517-5p binding site, so miR-210-3p is able to bind and partially unfold the
+                switch in the
+                absence of miR-517-5p, increasing the rate of translation. However, as the miR-517-5p binding site is
+                further upstream,
+                it is completely bound up in hydrogen bonds, so it is not accessible to the miRNA unless it binds as the
+                switch is being
+                transcribed.</p>
+            <h3>Learn</h3>
+            <p>We concluded that the gen3 toehold switches do cause a noticeable increase in translation when both
+                miRNAs are at a high
+                concentration (9M), compared to when one of both of them is at a low concentration (2.25M), which gives
+                strong evidence
+                that our AND-gate design works. However, we realised that, since the 2.25M concentrations only caused a
+                small amount
+                more translation of luciferase than the negative control (due to leaky expression), if the
+                concentrations in human serum
+                were lower than that, we would not be able to discriminate between patients with or without
+                preeclampsia, despite there
+                being a 4-fold increase in patients with the condition. Thus, we decided we needed to redesign our test
+                as a whole by
+                incorporating a method of amplifying miRNAs before adding toehold switches to the example.</p>
+            <h3>Design</h3>
+            <p>We wanted to find a solution that would allow amplification to take place isothermally, in a single tube,
+                increasing the
+                accessibility of our tests, especially in countries with less access to expensive equipment such as
+                thermocyclers.</p>
+            <p>Further research introduced us to miRPA which could convert miRNAs into double stranded DNAs with the
+                miRNA encoded in
+                part of one strand in DNA. In order to be left with just the strand with the miRNA encoded in it, we
+                decided our kit
+                would use another method on top of this - asymmetric RPA, which works the same as RPA, but with an
+                excess of the forward
+                primer, such that an excess of the desired strand is polymerised. To learn more about our design
+                considerations, and the
+                python tool we created to help us design probes, visit the Isothermal Amplification section of our <a
+                    href="https://2021.igem.org/Team:City_of_London_UK/Design"> Design page</a>.</p>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

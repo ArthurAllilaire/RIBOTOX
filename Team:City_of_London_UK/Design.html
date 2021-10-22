@@ -1,0 +1,294 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver HP</title>
+    <!-- For mathtext -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./../../style.css">
+
+</head>
+
+<body>
+    <div class="intro-content HP-cont">
+        <div class="intro-text">
+            <h1>Design</h1>
+            <ul>
+                <li><a style="color: white;" href="">MicroRNA Biomarkers</a></li>
+                <li><a style="color: white;" href="#toehold">Toehold Switches</a></li>
+                <li><a style="color: white;" href="">Isothermal Amplification
+                    </a></li>
+            </ul>
+            <h1>MicroRNA Biomarkers</h1>
+            <p>MicroRNAs (MiRNAs) are small single-stranded non-coding RNAs found in eukaryotes and some viruses that
+                function in
+                post-transcriptional gene regulation<sup id="cite_ref-1"><a href="#cite_note-1">[1]</a></sup>. MicroRNAs
+                circulating in human serum have been shown to be upregulated in certain
+                conditions, such as Preeclampsia, allowing them to be used as biomarkers in disease detection<sup
+                    id="cite_ref-2"><a href="#cite_note-2">[2]</a></sup>.</p>
+            <figure class="wave-photos chart-photos">
+                <div>
+                    <img src="https://2021.igem.org/wiki/images/thumb/7/75/T--City_of_London_UK--210_517_miRNA_graph.png/1200px-T--City_of_London_UK--210_517_miRNA_graph.png"
+                        alt="KCL zoom meeting">
+                </div>
+            </figure>
+            <p>After searching through many studies for miRNAs that are upregulated in the serum of Patients with
+                Preeclampsia, we
+                settled on miR-210-3p and miR-517-5p to detect. These are upregulated at an average of roughly 4-fold in
+                patients with
+                the condition, and the studies investigating each of their expression levels have confirmed their
+                potential to be used
+                as biomarkers to test for Preeclampsia <sup id="cite_ref-3"><a href="#cite_note-3">[3]</a></sup> <sup
+                    id="cite_ref-4"><a href="#cite_note-4">[4]</a></sup> .</p>
+        </div>
+    </div>
+    <div class="main-content-cont">
+        <div class="main-content">
+            <h2 id="toehold">Toehold Switches</h2>
+            <video src="https://2021.igem.org/wiki/images/2/2a/T--City_of_London_UK--Main_Toehold_Switch_anim.mp4"
+                class="massive-diagram" autoplay controls></video>
+            <p>When few microRNAs are present, the ribosome binding site of an mRNA coding for luciferase is folded up,
+                so the ribosome
+                cannot unzip the long stem and move down the strand to the start codon to initiate translation.</p>
+            <p>However, when a microRNA binds to the trigger site, the switch unfolds, decreasing the length of the
+                stem, and exposing
+                the start codon, so translation of leuciferase - a reporter protein - can begin.</p>
+            <img class="massive-diagram" style="padding-bottom: 0px;"
+                src="https://2021.igem.org/wiki/images/3/3e/T--City_of_London_UK--Gen2210.txt"
+                alt="Diagram of how a toehold switch works">
+            <p>We designed composite parts containing toehold switches which are activated in the presence of miR-210-3p
+                and
+                miR-517-5p. The switches are downstream of a T7 promoter and downstream of the reporter protein firefly
+                luciferase, the
+                expression of which can be quantifiably measured using a luminometer when its substrate, D-luciferin, is
+                added.</p>
+            <p>Our design evolution consisted of three generations of toehold switches to detect our two target miRNAs.
+            </p>
+            <p>Our first generation of switches (gen1) were designed to be highly specific, by incorporating an
+                anti-miRNA, and
+                detecting the complex of anti-miRNA and the miRNA trigger.</p>
+            <img class="massive-diagram"
+                src="https://2021.igem.org/wiki/images/thumb/4/48/T--City_of_London_UK--antimirna.txt/1041px-T--City_of_London_UK--antimirna.txt.png"
+                alt="Diagram of how a toehold switch works"
+                style="padding-bottom: 0px; max-width: 500px; margin: auto;">
+            <p>However, after a consultation with Dr Alex Green (see <a
+                    href="https://2021.igem.org/Team:City_of_London_UK/Human_Practices#Integrate"> Integrated Human
+                    Practices page</a>), we were advised to pursue a more
+                efficient and simpler ‘gen2’ switch, which detected just the miRNA triggers. Our gen3 switch uses
+                AND-gate logic and can
+                detect both miRNAs simultaneously by creating an anti-miRNA which binds together the two triggers, and
+                that complex
+                causes the switch to unfold.</p>
+            <h2>Gen2 Toehold Switches</h2>
+            <h3>Design Methodolgy</h3>
+            <p>We used the software package NUPACK to help design our gen2 switches in-silico. NUPACK is able to predict
+                the
+                interactions of the secondary structure of one or more nucleic acid strands. And so, we used the
+                programme to model and
+                perfect our switches.</p>
+            <p>At first, we designed our switches base by base, checking the minimum free energy (MFE) structure, using
+                NUPACK, to
+                ensure that our switch had a strong hairpin structure in the ‘off’ state and was properly unfolded in
+                its ‘on’ state.</p>
+            <p>We were successful in designing multiple switches that had MFE structures fulfilling this criteria, but
+                multiple bases
+                had low probabilities of being in their respective positions.</p>
+            <p>Therefore, we used the NUPACK API to generate a Python program to test a randomly generated list of
+                one-hundred-thousand
+                linker regions (which did not contain any stop or start codons) and simulated a thousand probabilistic
+                secondary
+                structure samples for each, showing which switch had the highest probability of unfolding in the
+                presence of our miRNA
+                triggers, but not in their absence.</p>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <figcaption>
+                    <h4 style="margin-bottom: 5px;">The gen2 switch for miR-517-5p</h4>
+                </figcaption>
+                <img src="https://2021.igem.org/wiki/images/thumb/c/ce/T--City_of_London_UK--Toehold_Switch2.png/1200px-T--City_of_London_UK--Toehold_Switch2.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch">
+            </figure>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <h4 style="margin-bottom: 5px;">The gen2 switch for miR-210-3p</h4>
+                <img src="https://2021.igem.org/wiki/images/thumb/c/ce/T--City_of_London_UK--Toehold_Switch2.png/1200px-T--City_of_London_UK--Toehold_Switch2.png"
+                    alt="Part BBa_K3905000, gen1 517-5p Toehold Switch">
+            </figure>
+            <h3>The Design</h3>
+            <p>Toehold switches contain multiple parts, namely: the trigger binding site, the ribosome binding site
+                (RBS), the seven
+                amino acid long linker sequence and the protein coding sequence.</p>
+            <p>The trigger binding site on each toehold switch is the reverse complement to the trigger RNA strand. As
+                the miRNAs are
+                both 22 nucleotides long, the trigger site is also 22 nucleotides long. The trigger binding site makes
+                up the lower stem
+                in the ‘off’ state as well as part of the toehold base. We were advised to ensure the trigger site was
+                >10 nucleotides
+                long by Dr Wooli (see <a href="https://2021.igem.org/Team:City_of_London_UK/Human_Practices#Integrate">
+                    Integrated Human
+                    Practices page</a>).</p>
+            <img class="massive-diagram" style="padding-bottom: 0px;"
+                src="https://2021.igem.org/wiki/images/c/c6/T--City_of_London_UK--How_A_Toehold_Switch_Works.png"
+                alt="Diagram of how a toehold switch works">
+            <p>The RBS (AGAGGAGA) was taken from Dr Alex Green and is a constant region throughout all our parts. Our
+                linker sequence
+                varies between switches. The linker sequence provides structure to the switch in both ‘on’ and ‘off’
+                states. We had to
+                ensure that the linker sequence did not bind with any other parts of the toehold switch. The software
+                that we created
+                helped ensure that we selected the most appropriate linker sequence to fulfil our criteria.</p>
+            <p>The start codon (AUG) is left unpaired in both ‘on’ and ‘off’ state. In order to achieve that, a wobble
+                pair is placed
+                on the opposite side of the stem. This increases the minimum free energy structure of the OFF state to
+                ensure the MFE
+                structure of the ON state is lower, such that the structure will change shape in the presence of the
+                trigger miRNA.</p>
+            <p>There was a fine balance between the length of the base and the length of the stem: The longer the stem
+                of the toehold
+                switch in the ‘off’ state, the more energy is required to overcome the intermolecular forces and so
+                there is lower
+                leakage. However, the longer the base of the switch, the easier it is for an RNA strand to bind and so
+                there is greater
+                expression of the protein.</p>
+            <h2>Gen3 Toehold Switch</h2>
+            <video src="https://2021.igem.org/wiki/images/6/67/T--City_of_London_UK--AndGatevideo.mp4"
+                class="massive-diagram" autoplay="" controls=""></video>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <h4 style="margin-bottom: 5px;">Helical representation of AND-gate in ‘ON’ state after dual miRNA and
+                    anti-miRNA complex
+                    has
+                    bound to the trigger
+                    binding site of the toehold switch</h4>
+                <img class="massive-diagram"
+                    src="https://2021.igem.org/wiki/images/0/0c/T--City_of_London_UK--And_Gate2.png"
+                    alt="Helical representation of AND-gate in ‘ON’ state after dual miRNA and anti-miRNA complex has bound to the trigger binding site of the toehold switch">
+            </figure>
+            <p>Our third generation of toehold switch uses AND-gate logic to detect the presence of our two target
+                miRNAs in one
+
+                switch.</p>
+            <p>This switch employs an anti-miRNA with three regions; two hybridization domains that are complementary to
+                each of our
+                trigger RNAs and the anti-miRNA’s own trigger site. This 29 nucleotide long strand has a 13 nucleotide
+                long binding site
+                for the miRNA 210-3p and an 11 nucleotide long binding site for miRNA 517-5p. This complex of the 3 RNA
+                strands is
+                necessary to bind to the toehold switch’s trigger binding site. We had to ensure that each of these
+                trigger binding
+                sites was >10 nucleotides on the advice of Dr Bae Wooli.</p>
+            <img class="massive-diagram" style="padding-bottom: 0px;"
+                src="https://2021.igem.org/wiki/images/d/d8/T--City_of_London_UK--Trigger_Complex_FormatioAc.png"
+                alt="Trigger Complex Formation">
+            <p>For the AND gate, we were unable to use the NUPACK API as the minimum free energy structure would show
+                each strand
+                binding, independent of the position of the other strands. Therefore, we designed the anti-miRNA and the
+                toehold switch
+                base by base. To ensure that the switch would unfold, we had to ensure that the difference in MFE
+                structure between the
+                ‘off’ and ‘on’ state was such that unfolding was energetically favourable when the anti-miRNA-miRNA
+                complex had formed.
+                In order to help us achieve this energetically favourable state we replaced an adequate amount of C-G
+                bonds with U-G
+                bonds to raise the free energy of the MFE structure of the OFF state.</p>
+            <img class="massive-diagram" style="padding-bottom: 0px;"
+                src="https://2021.igem.org/wiki/images/thumb/e/e3/T--City_of_London_UK--AndGateTHS.png/1200px-T--City_of_London_UK--AndGateTHS.png"
+                alt="Trigger Complex Formation">
+            <img class="massive-diagram" style="padding-bottom: 0px;"
+                src="https://2021.igem.org/wiki/images/2/2e/T--City_of_London_UK--DesignerTable.png"
+                alt="Designer Table">
+            <p>This table shows the homologous RNA compared to their percentage activation of the toehold switch. This
+                switch comes up
+                with 98% specificity and therefore we can be confident in how little leakage we expect due to homologous
+                RNAs in a given
+                blood sample.</p>
+            <p>The second way which we can increase our specificity is by amplifying the RNA concentrations.
+                (Information about testing
+                switches in Silico can be found on <a href="https://2021.igem.org/Team:City_of_London_UK/Model#">Model
+                    page</a> )</p>
+            <h1>Isothermal Amplification</h1>
+            <p>As seen in our <a href="https://2021.igem.org/Team:City_of_London_UK/Measurement">Measurement page</a> ,
+                we found it would be difficult to discriminate between leaky expression of our toehold
+                switches and <2.25M concentrations of miRNAs, and there is no data giving concentrations of our trigger
+                    miRNAs online.</p>
+                    <p>Therefore, to ensure miRNA concentration is high enough for them to be detected by the toehold
+                        switches, we decided to
+                        find a way to amplify our microRNAs. Not only is PCR difficult to perform on microRNAs due to
+                        their short length (~22
+                        nucleotides), we wanted to find a solution that would allow amplification to take place
+                        isothermally, in a single tube,
+                        increasing the accessibility of our tests, especially in countries with less access to expensive
+                        equipment such as
+                        thermocyclers.</p>
+                    <p>With further research and contacting, we came across Dr O’Sullivan, a researcher in isothermal
+                        amplification strategies.
+                        Dr O’Sullivan introduced us to Recombinase Polymerase Amplification (RPA), a single tube,
+                        isothermal alternative to PCR,
+                        which can amplify dsDNA strands5. So, before RPA could work, we had to find a way to reverse
+                        transcribe miRNA into DNA.
+                        And for this we decided to use miRPA.</p>
+                    <img class="massive-diagram" style="padding-bottom: 0px;"
+                        src="https://2021.igem.org/wiki/images/7/73/T--City_of_London_UK--Hardware_miRPA1.png"
+                        alt="Diagram of miRPA and RPA 1">
+                    <p>As seen in the diagram above, two DNA probes, one with 5’ phosphorylation, bind to the miRNA, and
+                        are ligated together
+                        by DNA ligase. Then, primers are added, with DNA polymerase, and complementary strands to the
+                        ligated probes are
+                        synthesised. Then, RPA can take place: primers, associated with recombinase protein so they can
+                        dislodge the strands,
+                        replicating them in a similar method to PCR, but as no heat cycles are required to break up the
+                        strands, the process can
+                        take place isothermally.</p>
+                    <img class="massive-diagram" style="padding-bottom: 0px;"
+                        src="https://2021.igem.org/wiki/images/9/95/T--City_of_London_UK--GRPA2.png"
+                        alt="Diagram of miRPA and RPA 1">
+                    <p>In order for the miRNA to be detected, we decided to use ‘asymmetric RPA’: an excess of forward
+                        primers are added
+                        (usually 5x the amount), so an excess of the strand that was originally miRNA form, so there is
+                        now ssDNA with the miRNA
+                        code in DNA. This can be detected by our toehold switches.</p>
+                    <img class="massive-diagram" style="padding-bottom: 0px;"
+                        src="https://2021.igem.org/wiki/images/thumb/9/90/T--City_of_London_UK--Hardware_miRPA3.png/974px-T--City_of_London_UK--Hardware_miRPA3.png"
+                        alt="Diagram of miRPA and RPA">
+                    <img class="massive-diagram" style="padding-bottom: 0px;"
+                        src="https://2021.igem.org/wiki/images/0/04/T--City_of_London_UK--grpa4.png"
+                        alt="Diagram of miRPA and RPA">
+                    <p>In order to design probes for miRPA, we designed another python script using Nupack’s design
+                        functions in its API to
+                        find probes which would bind to the miRNAs, but have overhangs which didn’t bind within
+                        themselves, to ensure primers
+                        could easily anneal to them. We then tested, using Nupack, the specificity of these probes and
+                        found that they had a
+                        less than 1% likelihood of binding to the closest human miRNA homologs in the correct shape.
+                        This demonstrated the
+                        increase in specificity that using miRPA could add to our test.</p>
+        </div>
+    </div>
+    <div class="footnotes">
+        <h2>Refrences</h2>
+        <ol class="refrences">
+            <li id="cite_note-1">David P. Bartel (2018). Metazoan MicroRNAs [Online]. Available at: <a
+                    href="https://doi.org/10.1016%2Fj.cell.2018.03.006">https://doi.org/10.1016%2Fj.cell.2018.03.006</a>
+                [Accessed 19 October 2021]</li>
+            <li id="cite_note-2">Condrat, C.E. et al., 2020. miRNAs as Biomarkers in Disease: Latest Findings Regarding
+                Their Role in Diagnosis and
+                Prognosis. Cells, 9(2), p.276. Available at:
+                <a href="http://dx.doi.org/10.3390/cells9020276">http://dx.doi.org/10.3390/cells9020276</a> [Accessed 19
+                October 2021].
+            </li>
+            <li id="cite_note-3">Reza M. A. N., Kolsoum S. et al., 2019. Quantification of circulating miR-517c-3p and
+                miR-210-3p levels in preeclampsia.
+                Pregnancy Hypertension, Volume 16, 2019, Pages 75-78, ISSN 2210-7789. Available at: <a
+                    href="https://doi.org/10.1016/j.preghy.2019.03.004">https://doi.org/10.1016/j.preghy.2019.03.004</a>
+                [Accessed 19 October 2021]
+            </li>
+            <li id="cite_note-4">Condrat, C.E. et al., 2020. miRNAs as Biomarkers in Disease: Latest Findings Regarding
+                Their Role in Diagnosis and
+                Prognosis. Cells, 9(2), p.276. Available at: <a
+                    href="http://dx.doi.org/10.3390/cells9020276">http://dx.doi.org/10.3390/cells9020276</a> . [Accessed
+                19
+                October 2021]
+            </li>
+        </ol>
+    </div>
+</body>

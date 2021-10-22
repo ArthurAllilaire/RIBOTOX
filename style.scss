@@ -707,6 +707,50 @@ table {
 		}
 	}
 }
+.HP-cont {
+	.wave-photos {
+		background-color: white;
+		width: fit-content;
+		min-width: 250px;
+		margin: auto;
+		margin-bottom: 20px;
+		border-radius: 10px;
+		padding: 20px;
+		text-align: center;
+		color: $C213;
+
+		img {
+			width: 60vw;
+			min-width: 250px;
+		}
+	}
+	.chart-photos {
+		img {
+			width: 60vw;
+			max-width: 600px;
+			min-width: 250px;
+		}
+	}
+	.profile-photo {
+		img {
+			width: 60vw;
+			min-width: 250px;
+			max-width: 400px;
+		}
+	}
+
+	.intro-text {
+		background-image: linear-gradient(
+			rgba(0, 0, 0, 0) 40%,
+			rgb(255 89 121) 40%
+		);
+	}
+	#double-people {
+		display: flex;
+		flex-direction: row;
+	}
+}
+
 // Massive diagrams
 .massive-diagram {
 	width: 100%;

@@ -1,0 +1,447 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering</title>
+    <!-- For mathtext -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./../../style.css">
+    <style>
+        .HP-cont .wave-photos {
+            background-color: white;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+            min-width: 250px;
+            margin: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #0c1f4a;
+        }
+
+        .HP-cont .wave-photos img {
+            width: 60vw;
+            min-width: 250px;
+        }
+
+        .HP-cont .intro-text {
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1900px, rgba(0, 0, 0, 0)), color-stop(1900px, rgb(255 81 118)));
+            background-image: linear-gradient(rgba(0, 0, 0, 0) 1900px, rgb(255 81 118) 1900px);
+        }
+
+        .HP-cont h2 {
+            color: white;
+        }
+
+        #double-people {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="intro-content HP-cont">
+        <div class="intro-text">
+            <h1 class="main-header">Implementation</h1>
+            <p>Our kit is a multi-use rapid preeclampsia kit. With millions of people suffering from preeclampsia every
+                year, it has
+                come to our attention that a cheap and quick detection kit had to be made. Pre-existing detection
+                methods are either
+                extremely inaccurate (eg: pressure cuffs) or quite expensive and slow. Therefore, our team focused on
+                increasing the
+                accuracy, reducing the cost, and shortening the time required to take the test.</p>
+        </div>
+    </div>
+    <div class="main-content-cont">
+        <div class="main-content">
+            <h2>The aspects of our kit:</h2>
+            <h3>Biology</h3>
+            <p>The synthetic biology component of our kit is the most vital, and we created three generations of toehold
+                switches to
+                this end. To read more about our toehold switches design, go to our <a
+                    href="https://2021.igem.org/Team:City_of_London_UK/Measurement">design page</a>, to learn more about
+                testing them, go to
+                our <a href="https://2021.igem.org/Team:City_of_London_UK/Measurement">measurements and results
+                    page</a>.</p>
+
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img src="https://2021.igem.org/wiki/images/thumb/6/64/T--City_of_London_UK--Toehold_Switch3.png/1200px-T--City_of_London_UK--Toehold_Switch3.png"
+                    alt="ToeHold Switch">
+            </figure>
+            <p>The toehold switch which we would use in our kit is our best, and final iteration - gen3. This toehold
+                switch is an
+                AND-gate switch which can detect multiple miRNA triggers by binding them together with synthetic
+                anti-miRNAs to form
+                larger trigger complexes. We tested this switch in the lab to show it can discriminate between a ratio
+                of concentrations
+                typical between patients with and without Preeclampsia. If our kit was implemented, we would conduct a
+                large research
+                study to find even more miRNAs upregulated in patients with Preeclampsia, and then create more than 2
+                input AND gates
+                based on the AND gate framework we showed works with this switch.</p>
+            <p>In order to ensure patients’ serum has a concentration of miRNA high enough for us to detect the
+                percentage difference,
+                we have designed an isothermal amplification strategy for our miRNA triggers, involving miRPA and RPA.
+                Read more about
+                these on our <a href="https://2021.igem.org/Team:City_of_London_UK/Measurement">Design page</a>.</p>
+            <h3>Hardware</h3>
+            <figure class="diagram-with-p hardware-figure" id="img-under">
+                <img src="https://2021.igem.org/wiki/images/f/fc/T--City_of_London_UK--Hardware.txt"
+                    alt="Circuit Diagram">
+            </figure>
+            <p>On top of our wet lab, we extensively researched methods to measure luciferase output from our designed
+                circuits.</p>
+            <p>We designed a magnetic bead-based miRNA extraction system, which could be further developed to be used in
+                clinical
+                trials to improve specificity and accuracy of our extraction system. In addition, we developed and
+                assembled a
+                luminometer circuit, which measures luminescence to return a positive or negative result. If our
+                hardware was to be
+                implemented, this luminometer design can be adapted to rollout a low-cost, high-specificity luminometer.
+            </p>
+            <h2>Stages of kit implementation</h2>
+            <p>For a extensive rollout of our proposed detection kits, the following stages of work would have to be
+                completed:</p>
+            <ol>
+                <li>
+                    Fundraising and project proposal
+                    <ul class="lettered-list">
+                        <li>For mass production and professional research, sums in the millions of pounds would be
+                            required. In order to achieve
+                            this fundraising requirement, attracting investment through project proposals is key.</li>
+                    </ul>
+                </li>
+                <li>
+                    Research
+                    <ul class="lettered-list">
+                        <li>We can use the AND gate framework to create multi-input toehold switches which detect a much
+                            larger array of miRNAs for
+                            higher specificity.</li>
+                        <li>More research in order to reduce false results, minimise errors, and maximise specificity is
+                            required.</li>
+                    </ul>
+                </li>
+                <li>
+                    Designing toehold switches and probes for miRPA using our software tools and the general project
+                    framework
+                    <ul class="lettered-list">
+                        <li>Once preliminary research is completed, the first phase of designing the kit begins.</li>
+                        <li>Once AND gate toehold switch and miRNA probes are designed, the kit is ready to be tested.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Trials, both clinical and non-clinical
+                    <ul class="lettered-list">
+                        <li>To ensure maximum safety and accuracy of our product, multiple trial phases are required.
+                        </li>
+                        <li>In vitro testing, human testing would be required. One advantage of our product is that our
+                            kit has no side effects bar
+                            collecting a small sample of blood from the tested individual. This will, therefore, reduce
+                            time and cost for clinical
+                            trials compared to many other medical equipment.</li>
+                    </ul>
+                </li>
+                <li>
+                    Rollout
+                    <ul class="lettered-list">
+                        <li>After completing testing, our kit has to be sold and distributed to pregnancy clinics,
+                            hospitals, national healthcare
+                            services, and governmental bodies.</li>
+                        <li>This is further discussed below, where we look at ‘Customer Discovery’</li>
+                    </ul>
+                </li>
+
+            </ol>
+            <h2>SWOT Analysis:</h2>
+            <p>To carefully judge the pros and cons of our kit, we created a SWOT analysis table.</p>
+            <h3>Strengths</h3>
+            <ul>
+                <li>Requires little equipment bar our kit, and highly cost effective, even when rolled out in large
+                    numbers (See <a href="https://2021.igem.org/Team:City_of_London_UK/Model#Cost_model">Cost Model</a>
+                    under Modelling)</li>
+                <li>Diagnosis in under one hour</li>
+                <li>Pre-Eclampsia product new to market</li>
+                <li>Serum sample is easy to obtain</li>
+                <li>Small current market for blood-test- based Preeclampsia detection</li>
+                <li>Innovative use of AND-gate toehold switches to prevent ‘leakiness’ and false positives and increase
+                    accuracy</li>
+                <li>Preeclampsia test market estimated to be $1.1 billion by 2027 <sup id="cite_ref-1"><a
+                            href="cite_note-1">[1]</a></sup></li>
+            </ul>
+            <h3>Weaknesses</h3>
+            <ul>
+                <li>Absence of creation of large-scale production</li>
+                <li>Solutions for the test require containment in dry ice</li>
+                <li>Hardware requires an energy source from either batteries or an outlet plug, making it hard to
+                    implement in
+                    under-developed areas</li>
+                <li>Lack of copyright for our test</li>
+            </ul>
+            <h3>Opportunities</h3>
+            <ul>
+                <li>Currently no other blood test for Pre-Eclampsia</li>
+                <li>Half the price of screening during first and second trimester</li>
+                <li>A third of the price of combined early-onset and first trimester screening</li>
+            </ul>
+            <h3>Threats</h3>
+            <ul>
+                <li>VCGS offers a screening process for first trimester, second trimester, and early-onset preeclampsia
+                </li>
+                <li>Negative perceptions of genetic engineering from the public</li>
+            </ul>
+            <h2>Customer discovery:</h2>
+            <p>Focusing on the different levels of customers that will purchase our kit, we looked at a total of 4
+                different stages.</p>
+            <p>From the distributor (us or a manufacturing company):</p>
+            <h3>Customer Level 1:</h6>
+                <p>Governments and NHS: The National Health Service is the publicly funded healthcare system in England,
+                    and
+                    received a
+                    budget of £134 billion in 2019. Furthermore, the NHS delivered 591,759 babies in 2019. Our product
+                    would
+                    be used by all
+                    the expecting mothers who are treated by the NHS to ensure early and reliable diagnosis of
+                    pre-eclampsia.</p>
+                <p>National healthcare systems would purchase the preeclampsia tests for use on expecting mothers in
+                    their
+                    care.</p>
+                <h3>Customer Level 1.5:</h6>
+                    <p>Pharmaceutical TNCs (eg Bayer, GSK)/Chain private-clinics:</p>
+                    <ul>
+                        <li>National healthcare systems would purchase the preeclampsia tests for use on expecting
+                            mothers in
+                            their care.</li>
+                    </ul>
+                    <h3>Customer Level 2:</h6>
+                        <p>Pharmacies/ Supermarkets:</p>
+                        <ul>
+                            <li>Pharmacies and Supermarkets would purchase the tests to resell them to their customers
+                                that are
+                                pregnant and want to
+                                test for preeclampsia.</li>
+                        </ul>
+                        <h3>Customer level 3: The Ultimate benefitter</h6>
+                            <p>The ultimate benefitter would be the mother who is being tested and her unborn baby as
+                                this test would
+                                indicate whether
+                                treatment is needed and maybe whether an early delivery is needed.</p>
+                            <img class="massive-diagram" style="padding-bottom: 0px;"
+                                src="https://2021.igem.org/wiki/images/3/37/T--City_of_London_UK--pyramid.txt"
+                                alt="Pyramid">
+                            <h2>Similar products:</h2>
+                            <p>To find competitors in our market, we first looked at similar disease detection methods.
+                                Then we found one main
+                                competitor, a company who focuses on preeclampsia detection specifically. This
+                                competitor, VCGS, provides testing for
+                                first and second trimester screening along with early-onset preeclampsia tests. For the
+                                first and second trimester
+                                tests, the price ranges from $79 to $101. In this case our cost is below the lowest
+                                bound which provides a strong
+                                incentive to buy from us instead of from VCGS. The early-onset tests (combined with
+                                first trimester testing) range in
+                                price from $111 to $120. Our product does not directly compete with the early-onset
+                                testing services, however, that we
+                                are once again below the lower bound of cost is a good sign of our relative price
+                                competitiveness. All other competition
+                                is not directly against us as all other competitors’ products revolve around placental
+                                growth - not a diagnostic blood
+                                test like ours. This gives us a smaller and more penetrable market.</p>
+                            <p>Other similar products include Rapid Antigen Tests for travel, PCR tests for COVID-19,
+                                and Blood Type testing kits. The
+                                rapid antigen tests cost £29 and thus are slightly more cost efficient than our product.
+                                However, this price difference
+                                is only slight and all of our test is single-use (unlike the RATs), furthermore they
+                                test for an entirely different
+                                disease. More accurate testing for COVID-19, and another competitor, is by using PCR.
+                                These tests cost £79 which makes
+                                our test a considerably cheaper technology. Whilst we do not directly compete, since
+                                they test for different diseases,
+                                this is further evidence for our price being a compelling one. The Blood Type Test Kit
+                                is much cheaper than our kit at
+                                £7.25. This cost difference can be largely attributed to the difference in hardware
+                                pricing. This suggests that our
+                                product is not at the cheapest price that could be achievable. However, cost often
+                                reduces greatly when mass production
+                                is used - due to economies of scale. As such, the price delta is not an issue.</p>
+                            <p>Similar products and competitors:</p>
+                            <ol class="lettered-list">
+                                <li>Rapid antigen testing for travel is £29-<a
+                                        href="https://www.google.com/url?q=https://officialrapidtests.com/products/rapid-test?gclid%3DCjwKCAjw4KyJBhAbEiwAaAQbE3M74LRkIEf_NCeiRTjbbKja9DNwfUzm_Dcn-swjhSqXNh9k_v_QIBoCi1oQAvD_BwE&amp;sa=D&amp;source=editors&amp;ust=1634874902587000&amp;usg=AOvVaw2mR2Nxxp3thN3W-004jaxs">COVID-19
+                                        Rapid Antigen Test for Travel | Official Rapid Tests | £29</a></li>
+                                <li>PCR test is £79-<a class="c17"
+                                        href="https://www.google.com/url?q=https://www.assuredscreening.com/londonkingscross/?gclid%3DCjwKCAjw4KyJBhAbEiwAaAQbE49oonxPIciAA6lzKxKtYDCav9AaEOc1SCqxtzAOuK1iB-iuB-5hnBoCPbwQAvD_BwE&amp;sa=D&amp;source=editors&amp;ust=1634874902588000&amp;usg=AOvVaw2vqPLugBGCX01pSCki92ln">London
+                                        Kings Cross / St Pancras- Assured Screening</a></li>
+                                <li>FlowFlex SARS-CoV-2 COVID-19 Low Level Nasal Non-Invasive Swab Antigen Rapid Test
+                                    Kits are £14.99 (inc. VAT)-<a class="c17"
+                                        href="https://www.google.com/url?q=https://www.flowflexrapidtest.com/product/single-flowflex-sars-cov-2-antigen-rapid-test/?gclid%3DCjwKCAjw4KyJBhAbEiwAaAQbE-0hzRt6t1IDBgGWyqR25oZ8kRdHKD1wVoEO-vzF0V1J_x1QVhuFdRoCsg8QAvD_BwE&amp;sa=D&amp;source=editors&amp;ust=1634874902588000&amp;usg=AOvVaw11GwgGcAyuCpE0GrbO44Bw">FlowFlex
+                                        COVID-19 Low Level Non-Invasive Swab Antigen Rapid Test Kits
+                                        (flowflexrapidtest.com)</a></li>
+                                <li>1 x Blood Type Test Kit - Group A, B, RhD Testing - Home EldonCard Tests are
+                                    £7.25-<a class="c17"
+                                        href="https://www.google.com/url?q=https://www.amazon.co.uk/Blood-Type-Test-Kit-EldonCard/dp/B002ZU7GIW&amp;sa=D&amp;source=editors&amp;ust=1634874902589000&amp;usg=AOvVaw1fhFZ0DVsKHNpGYy4ZnfON">1
+                                        x Blood Type Test Kit - Group A, B, RhD Testing - Home EldonCard Tests :
+                                        Amazon.co.uk: Health &amp; Personal
+                                        Care</a></li>
+                                <li>
+                                    Main Competitor: VCGS offer testing for pre-eclampsia for subsequent prices:
+                                    <ol>
+                                        <li>For first trimester combined screening, the out-of-pocket range is $92-$101
+                                            (Item #66750).</li>
+                                        <li>For first trimester combined screening with Early-onset Pre-eclampsia, the
+                                            out-of-pocket range is $111-$120 (Item
+                                            #66750).</li>
+                                        <li>For second trimester screening, the out-of-pocket range is $79-$88 (Item
+                                            #66751).</li>
+                                        <li>VCGS is the only direct competitor regarding pre-eclampsia, the other ones
+                                            relate to placental growth. Smaller market
+                                            means our product has a greater chance of breaking through and becoming
+                                            commonly utilised.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                            <h3>Will governments bulk purchase our kits?</h3>
+                            <p>Our kits will replace alternative screening products which currently cost over twice the
+                                amount of ours. This provides a
+                                cheaper alternative for national health services which are already at their limit of
+                                funding, thus providing a strong
+                                incentive for governments to bulk purchase our kits. A potential issue could be the
+                                requirement for dry-ice shipping and
+                                storage. However, through the COVID vaccine rollout, we have seen that healthcare
+                                providers have the necessary equipment
+                                and capacity to keep a bulk set of tests (namely the Pfizer-BioNTech, and the Moderna
+                                vaccines) at less than -15 degrees
+                                celsius. The EU, for example, bulk purchased over 900 million Pfizer-BioNTech
+                                vaccines<sup id="cite_ref-2"><a href="cite_note-2">[2]</a></sup> - each which has to be
+                                stored at -70 degrees Celsius. Therefore, it is clear that the storage requirements
+                                would not negatively impact the
+                                chance of governments bulk purchasing our kits. The EU also bought 500 million COVID-19
+                                vaccine does at a cost of
+                                £1.75 billion. Conservatively estimating the cost of a single test to be £30, the bloc
+                                could purchase 58 million of
+                                our tests for the same price. This single level of investment, extrapolating from the
+                                number of births in the EU in
+                                2019 (4.2 million)<sup id="cite_ref-3"><a href="cite_note-3">[3]</a></sup>,
+                                would provide enough tests for screening of pregnant women for 13.8 years. Preeclampsia
+                                is also associated with
+                                30% of overall obstetrics costs<sup id="cite_ref-4"><a href="cite_note-4">[4]</a></sup>
+                                and thus, by buying our product and implementing screening, the
+                                associated healthcare
+                                providers could save €6.5-9.1 million per country per annum<sup id="cite_ref-5"><a
+                                        href="cite_note-5">[5]</a></sup>.This
+                                shows that the
+                                commission, who have a desire to both save lives and reduce costs, would certainly
+                                bulk purchase our tests.
+                            </p>
+                            <p>Eg: The EU purchased 500 million vaccine doses (Astro Zeneca)with the price being between
+                                £3 and £4, total price mounted
+                                to about 1.75 billion pounds- 2021<sup id="cite_ref-6"><a
+                                        href="cite_note-6">[6]</a></sup>.</p>
+                            <h3>Key partners and advertising if our kit was to be implemented</h3>
+                            <p>To maximise efficiency of our kit production, we must partner up with other companies to
+                                purchase supplies and
+                                equipment.</p>
+                            <p>Toeholds and probe production will require advice and purchases from gene-specialist
+                                companies such as IDT.</p>
+                            <p>Other medical-equipment companies, for example needles to take blood samples, may be
+                                supplied from companies like BD.</p>
+                            <p>To promote the purchase of the product, we will have to focus on advertisements. When
+                                advertising medical products, it
+                                is extremely important to scrutinise its effect on the people who come in contact with
+                                the adverts. They must not induce
+                                fear or provide false/exaggerated information.</p>
+                            <p>If implemented, the promotion team must research further into laws and regulations around
+                                medical equipment and
+                                detection kits.</p>
+                            <h3>Safety</h3>
+                            <p>Despite the invasive nature of our kit (blood sampling), when the blood taking is
+                                executed without failure of following
+                                protocols (eg: sterile needle, disinfect skin before sampling), there should be no
+                                direct side effect.</p>
+                            <p>When looking at the larger picture, our kits may affect the safety of preeclampsia
+                                patients when a false negative is
+                                shown. This may be due to a production error, anomalous miRNA regulation in the patient,
+                                sampling error, or by pure
+                                chance. This is in fact the case with most testing kits, especially rapid, low-cost
+                                tests, namedly the COVID-19 lateral
+                                flow tests. To mitigate the possibility of infringing the safety of preeclampsia
+                                patients, we propose the following
+                                measures to be taken:</p>
+                            <ul>
+                                <li>Clearly state to all customers about the chance of false negatives. An example could
+                                    be: <blockquote class="quote-highlight">‘Though our kits provide a
+                                        rapid testing tool to screen preeclampsia, it is not deterministic. A positive
+                                        result indicates a high possibility of
+                                        the testee having preeclampsia. A negative result indicates a high possibility
+                                        that
+                                        the testee does not have
+                                        preeclampsia. When a positive result is obtained, consult a doctor or seek
+                                        immediate
+                                        medical aid. When a negative result
+                                        is obtained, pay attention to potential preeclampsia symptoms, and test again
+                                        with a
+                                        doctor at the next obstetrician
+                                        appointment. This is suggested as false negative results may occur with low
+                                        probabilities.’</blockquote>
+                                </li>
+                                <li>To reduce faulty tests due to contamination, users should be instructed not to
+                                    physically contact some areas of the
+                                    testing kit.</li>
+                            </ul>
+
+
+
+
+
+        </div>
+    </div>
+    <div class="footnotes">
+        <h2>Refrences</h2>
+        <ol class="refrences">
+            <li id="cite_note-1">Cordis.europa.eu. 2021. <i> CORDIS | European Commission</i>. [online] Available at: <a
+                    href="https://cordis.europa.eu/article/id/429449-safer-pregnancies-thanks-to-quick-easy-preeclampsia-test">https://cordis.europa.eu/article/id/429449-safer-pregnancies-thanks-to-quick-easy-preeclampsia-test</a>
+                [Accessed 21 October 2021]</li>
+            <li id="cite_note-2">European Commission - European
+                Commission. 2021. Press corner. [online] Available at: <a href="https:
+                //ec.europa.eu/commission/presscorner/detail/en/ip_21_2548">https:
+                    //ec.europa.eu/commission/presscorner/detail/en/ip_21_2548</a> [Accessed 21 October 2021].</li>
+            <li id="cite_note-3">Ec.europa.eu. 2021. Fertility statistics - Statistics Explained. [online] Available at:
+                <a href="https:
+                //ec.europa.eu/eurostat/statistics-explained/index.php?title=Fertility_statistics">https:
+                    //ec.europa.eu/eurostat/statistics-explained/index.php?title=Fertility_statistics</a> [Accessed 21
+                October 2021].
+            </li>
+            <li id="cite_note-4">Cordis.europa.eu. 2021. CORDIS | European Commission.
+                [online] Available at: <a
+                    href="https: //cordis.europa.eu/article/id/429449-safer-pregnancies-thanks-to-quick-easy-preeclampsia-test">https:
+                    //cordis.europa.eu/article/id/429449-safer-pregnancies-thanks-to-quick-easy-preeclampsia-test</a>
+                [Accessed
+                21 October 2021].
+            </li>
+            <li id="cite_note-5">Fox, A., McHugh, S., Browne, J., Kenny, L., Fitzgerald, A., Khashan, A., Dempsey, E.,
+                Fahy, C., O’Neill, C. and Kearney,
+                P., 2017. Estimating the Cost of Preeclampsia in the Healthcare System. Hypertension, 70(6),
+                pp.1243-1249.
+            </li>
+            <li id="cite_note-6">[Online] Available at: <a
+                    href="https:
+                //www.cnbc.com/2020/11/17/covid-vaccines-how-much-they-cost-whos-bought-them-and-how-theyre-stored.html">https:
+                    //www.cnbc.com/2020/11/17/covid-vaccines-how-much-they-cost-whos-bought-them-and-how-theyre-stored.html</a>
+                [Accessed
+                21 October 2021].
+
+            </li>
+
+        </ol>
+    </div>
+</body>
+
+</html>
